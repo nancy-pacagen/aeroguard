@@ -464,6 +464,18 @@
 
   function addToCart(btn, name, price) {
     trackEvent('add_to_cart', {product_name:name, price:price, currency:'USD'});
+    // 2. NEW: Meta Pixel AddToCart Tracking
+    if (typeof fbq === 'function') {
+      fbq('track', 'AddToCart', {
+        content_name: name,
+        content_category: 'Allergy Relief',
+        content_ids: [name.toLowerCase().replace(/\s+/g, '_')], // Creates a simple ID like 'nasal_spray'
+        content_type: 'product',
+        value: price,
+        currency: 'USD'
+      });
+    }
+
     cartState[name] = (cartState[name]||0)+1;
     cartCount = Object.values(cartState).reduce(function(a,b){return a+b;},0);
     try { localStorage.setItem('aeroguard_cart', JSON.stringify(cartState)); } catch(e) {}

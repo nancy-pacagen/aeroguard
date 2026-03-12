@@ -47,8 +47,18 @@
       --red-border:rgba(180,50,50,0.2);
     }
     html{scroll-behavior:smooth}
-    body{font-family:'Montserrat',sans-serif;background:var(--offwhite);color:var(--ink);min-height:100vh}
-
+    body{
+      font-family:'Montserrat',sans-serif;
+      background:var(--offwhite);
+      color:var(--ink);
+      min-height:100vh;
+      display:flex;
+      flex-direction: column;
+      margin:0;
+    }
+    .page-container {
+      flex: 1 0 auto;
+    }
     /* NAV */
     nav{
       display:flex;align-items:center;justify-content:space-between;
@@ -320,7 +330,7 @@
   </div>
 </div>
 
-<!-- <footer>
+<footer>
   <div class="footer-logo">
     <img src ="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
     <span class="footer-logo-text">AeroGuard</span>
@@ -329,7 +339,7 @@
   <div class="footer-links">
     <a href="#">Privacy</a><a href="#">Science</a><a href="#">Contact</a>
   </div>
-</footer> -->
+</footer>
 
 <script>
   const PRODUCTS = {
