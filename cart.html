@@ -439,6 +439,25 @@
     var entries = Object.entries(cart).filter(function(e){return e[1]>0;});
     var total = entries.reduce(function(s,e){return s+(PRODUCTS[e[0]]?PRODUCTS[e[0]].price*e[1]:0);},0);
     trackEvent('checkout_attempted',{items:entries.map(function(e){return{name:e[0],qty:e[1]};}),total:total,outcome:'sold_out'});
+    
+    // meta pixel tracking
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout', {
+        content_category: 'Allergy Relief',
+        content_ids: entries.map(function(e) { return e[0].toLowerCase().replace(/\s+/g, '_'); }),
+        contents: entries.map(function(e) {
+          return {
+            id: e[0].toLowerCase().replace(/\s+/g, '_'),
+            quantity: e[1],
+            item_price: PRODUCTS[e[0]] ? PRODUCTS[e[0]].price : 0
+          };
+        }),
+        num_items: entries.reduce(function(s, e) { return s + e[1]; }, 0),
+        value: total,
+        currency: 'USD'
+      });
+    }
+    
     document.getElementById('checkoutBtn').style.display='none';
     document.getElementById('cartItems').classList.add('soldout-active');
     var chips = document.getElementById('soldoutChips');
