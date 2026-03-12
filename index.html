@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const CONFIG = {
+      KLAVIYO_PUBLIC_KEY: 'ReGnRK',
+      KLAVIYO_LIST_ID: 'XnPQAs'    
+    };
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AeroGuard — Inhalable Allergy Relief</title>
@@ -392,12 +398,12 @@
 <section class="mailing">
   <div class="section-eyebrow fade-up">Stay Informed</div>
   <h2 class="section-title fade-up">Mailing List</h2>
-  <p class="mailing-sub fade-up">Early access to new formulations, clinical updates, and launch discounts.</p>
+  <p class="mailing-sub fade-up">Sign up for early access to new formulations and exclusive discounts.</p>
   <div class="mailing-form fade-up">
     <input type="email" class="mailing-input" id="mailingEmail" placeholder="your@email.com"/>
     <button class="mailing-submit" onclick="submitMailing()">Subscribe</button>
   </div>
-  <p class="mailing-note">No spam. Unsubscribe anytime.</p>
+  <p class="mailing-note">By subscribing, you agree to receive marketing emails from Pacagen Inc. Unsubscribe anytime.</p>
 </section>
 
 <footer>
@@ -464,16 +470,59 @@
     var p = encodeURIComponent(JSON.stringify(cartState));
     window.location.href = 'cart.html?cart='+p;
   }
-
   function submitMailing() {
-    var email = document.getElementById('mailingEmail').value.trim();
-    if(!email||!email.includes('@')) return;
-    trackEvent('email_signup', {email:email, source:'mailing_footer'});
+    var emailInput = document.getElementById('mailingEmail');
+    var email = emailInput.value.trim();
     var btn = document.querySelector('.mailing-submit');
-    btn.textContent = '✓ Subscribed';
-    btn.style.background = '#5a8a6e';
-    document.getElementById('mailingEmail').value = '';
-  }
+
+    // 1. Basic validation
+    if (!email || !email.includes('@')) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    // 2. Your existing analytics tracking
+    if (typeof trackEvent === "function") {
+        trackEvent('email_signup', { email: email, source: 'mailing_footer' });
+    }
+
+    // 3. Klaviyo Configuration
+
+    // const PUBLIC_KEY = 'ReGnRK'; 
+    // const LIST_ID = 'XnPQAs';
+
+    // 4. Visual Feedback (Loading state)
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // 5. Prepare the data for Klaviyo
+    const formData = new FormData();
+    formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY);
+    formData.append('g', CONFIG.KLAVIYO_LIST_ID);
+    formData.append('email', email);
+    formData.append('$fields', '$source');
+    formData.append('$source', 'AeroGuard Website');
+
+    // 6. Send to Klaviyo
+    fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors' // This avoids CORS errors with Klaviyo's legacy endpoint
+    })
+    .then(() => {
+        // 7. Your original success styling
+        btn.textContent = '✓ Subscribed';
+        btn.style.background = '#5a8a6e';
+        emailInput.value = '';
+        btn.disabled = false;
+    })
+    .catch(error => {
+        console.error('Klaviyo Error:', error);
+        btn.textContent = 'Error';
+        btn.style.background = '#e74c3c'; // Red for error
+        btn.disabled = false;
+    });
+}
 
   var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(el) { if(el.isIntersecting) el.target.classList.add('visible'); });

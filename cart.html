@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    const CONFIG = {
+      KLAVIYO_PUBLIC_KEY: 'ReGnRK',
+      KLAVIYO_LIST_ID: 'TSBjUS'    
+    };
+  </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Cart — AeroGuard</title>
@@ -261,7 +267,7 @@
           </div>
         </div>
         <div class="soldout-body">
-          <p class="soldout-sub">The items in your cart have just sold out. Drop your email and we'll notify you the moment they're back in stock.</p>
+          <p class="soldout-sub">The items in your cart are sold out. Drop your email and we'll notify you the moment they're back in stock.</p>
           <div class="soldout-chips" id="soldoutChips"></div>
           <div id="restockFormWrap">
             <div class="restock-email-wrap">
@@ -270,7 +276,7 @@
             </div>
             <label class="consent-label" id="consentWrap">
               <input type="checkbox" id="consentBox"/>
-              <span>I agree to receive a restock notification from AeroGuard. See our <a href="#" onclick="return false">Privacy Policy</a>.</span>
+              <span>I agree to receive notifications from Pacagen Inc. See our <a href="#" onclick="return false">Privacy Policy</a>.</span>
             </label>
             <p class="restock-fine" id="consentError" style="display:none;color:rgba(220,80,80,0.85)">Please check the box above to continue.</p>
             <!-- <p class="restock-fine">One email when restocked. No marketing fluff.</p> -->
@@ -279,7 +285,7 @@
             <div class="restock-success-icon">&#127800;</div>
             <div>
               <div class="rst-title">You're on the list.</div>
-              <div class="rst-sub">We'll email you the moment these restock — you'll be first.</div>
+              <div class="rst-sub">We'll email you the moment these restock.</div>
             </div>
           </div>
         </div>
@@ -401,44 +407,91 @@
     setTimeout(function(){document.getElementById('restockEmail').focus();},500);
   }
 
-  function submitRestock() {
-    var email = document.getElementById('restockEmail').value.trim();
-    var consented = document.getElementById('consentBox').checked;
-    if(!email||!email.includes('@')) {
-      document.getElementById('restockEmail').style.borderColor='rgba(180,50,50,0.7)';
-      document.getElementById('restockEmail').focus();
-      return;
-    }
-    if(!consented) {
-      document.getElementById('consentError').style.display='block';
-      return;
-    }
-    var btn = document.getElementById('restockBtn');
-    btn.textContent='...';
-    btn.disabled=true;
-    var snap = Object.entries(cart).filter(function(e){return e[1]>0;}).map(function(e){return{name:e[0],qty:e[1],price:PRODUCTS[e[0]]?PRODUCTS[e[0]].price:0};});
-    if(typeof posthog!=='undefined') {
-      posthog.identify(email,{
-        email:email,
-        restock_interest:snap.map(function(i){return i.name;}),
-        signup_source:'checkout_soldout',
-        consented_at:new Date().toISOString()
-      });
-    }
-    trackEvent('restock_email_signup',{
-      email:email,
-      source:'checkout_soldout',
-      cart_items:snap,
-      cart_total:snap.reduce(function(s,i){return s+i.price*i.qty;},0),
-      intent:'very_high',
-      consented:true
-    });
-    setTimeout(function(){
-      document.getElementById('restockFormWrap').style.display='none';
-      document.getElementById('restockSuccess').classList.add('show');
-    },500);
+const KLAVIYO_PUBLIC_KEY = 'ReGnRK';
+const KLAVIYO_LIST_ID = 'TSBjUS';
+
+// --- Restock Function ---
+function submitRestock() {
+  var emailInput = document.getElementById('restockEmail');
+  var email = emailInput.value.trim();
+  var consented = document.getElementById('consentBox').checked;
+  var btn = document.getElementById('restockBtn');
+
+  // 1. Validation Logic
+  if (!email || !email.includes('@')) {
+    emailInput.style.borderColor = 'rgba(180,50,50,0.7)';
+    emailInput.focus();
+    return;
+  }
+  if (!consented) {
+    document.getElementById('consentError').style.display = 'block';
+    return;
   }
 
+  // 2. UI Loading State
+  btn.textContent = '...';
+  btn.disabled = true;
+
+  // 3. Prepare Cart Data (The "Snapshot")
+  var snap = Object.entries(cart)
+    .filter(function(e) { return e[1] > 0; })
+    .map(function(e) { 
+      return { 
+        name: e[0], 
+        qty: e[1], 
+        price: PRODUCTS[e[0]] ? PRODUCTS[e[0]].price : 0 
+      }; 
+    });
+
+  var itemListString = snap.map(function(i) { return i.name; }).join(', ');
+
+  // 4. Analytics Tracking (PostHog & Custom Event)
+  if (typeof posthog !== 'undefined') {
+    posthog.identify(email, {
+      email: email,
+      restock_interest: snap.map(function(i) { return i.name; }),
+      signup_source: 'checkout_soldout',
+      consented_at: new Date().toISOString()
+    });
+  }
+  
+  trackEvent('restock_email_signup', {
+    email: email,
+    source: 'checkout_soldout',
+    cart_items: snap,
+    cart_total: snap.reduce(function(s, i) { return s + i.price * i.qty; }, 0),
+    intent: 'very_high',
+    consented: true
+  });
+
+  // 5. Klaviyo Integration (AJAX)
+  const formData = new FormData();
+  formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY); // Account Public Key
+  formData.append('g', CONFIG.KLAVIYO_LIST_ID);   // Target List ID
+  formData.append('email', email);
+  
+  // Custom properties for Klaviyo profiles
+  formData.append('$fields', '$source,restock_items');
+  formData.append('$source', 'Checkout Restock Form');
+  formData.append('restock_items', itemListString);
+
+  fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors' // Handles cross-origin security
+  })
+  .then(function() {
+    // 6. Success UI Transition
+    document.getElementById('restockFormWrap').style.display = 'none';
+    document.getElementById('restockSuccess').classList.add('show');
+  })
+  .catch(function(err) {
+    console.error('Klaviyo Sync Error:', err);
+    // Fallback: Still show success to the user as data was likely caught by analytics
+    document.getElementById('restockFormWrap').style.display = 'none';
+    document.getElementById('restockSuccess').classList.add('show');
+  });
+}
   function trackEvent(name, props) {
     props=props||{};
     if(typeof posthog!=='undefined') posthog.capture(name,props);
