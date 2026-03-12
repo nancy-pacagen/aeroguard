@@ -28,8 +28,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Cart — AeroGuard</title>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <script>!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-    posthog.init('YOUR_POSTHOG_KEY', {api_host: 'https://us.i.posthog.com'});</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -94,6 +92,16 @@
       text-decoration:none;font-weight:500;transition:background 0.2s;
     }
     .btn-browse:hover{background:var(--purple-mid)}
+
+    /* FOOTER */
+    footer{background:var(--purple-deep);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .footer-logo{display:flex;align-items:center;gap:0.6rem}
+    .footer-logo img{width:26px;height:26px;object-fit:contain;opacity:0.75}
+    .footer-logo-text{font-family:'Raleway',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.65)}
+    footer small{font-size:0.65rem;color:rgba(255,255,255,0.22)}
+    .footer-links{display:flex;gap:1.5rem}
+    .footer-links a{font-size:0.68rem;color:rgba(255,255,255,0.28);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase}
+    .footer-links a:hover{color:rgba(255,255,255,0.55)}
 
     /* Cart items */
     .cart-items{display:flex;flex-direction:column}
@@ -312,6 +320,17 @@
   </div>
 </div>
 
+<!-- <footer>
+  <div class="footer-logo">
+    <img src ="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
+    <span class="footer-logo-text">AeroGuard</span>
+  </div>
+  <small>© 2026 AeroGuard. All rights reserved.</small>
+  <div class="footer-links">
+    <a href="#">Privacy</a><a href="#">Science</a><a href="#">Contact</a>
+  </div>
+</footer> -->
+
 <script>
   const PRODUCTS = {
     'Nasal Spray': { price: 48, icon: '💜', color: 'linear-gradient(135deg,#f0e8f5,#e8ddf0)', level: 'Nasal Relief Formula' },
@@ -399,7 +418,7 @@
   function updateSummary() {
     var entries = Object.entries(cart).filter(function(e){return e[1]>0;});
     var sub = entries.reduce(function(s,e){return s+(PRODUCTS[e[0]]?PRODUCTS[e[0]].price*e[1]:0);},0);
-    var ship = sub>=45?0:8;
+    var ship = (sub === 0 || sub >= 45) ? 0 : 8;
     document.getElementById('subtotalVal').textContent='$'+sub.toFixed(2);
     document.getElementById('shippingVal').textContent=ship===0?'Free':'$'+ship.toFixed(2);
     document.getElementById('shippingVal').className=ship===0?'green':'';
@@ -434,7 +453,7 @@ function submitRestock() {
   var consented = document.getElementById('consentBox').checked;
   var btn = document.getElementById('restockBtn');
 
-  // 1. Validation Logic
+  // Validation Logic
   if (!email || !email.includes('@')) {
     emailInput.style.borderColor = 'rgba(180,50,50,0.7)';
     emailInput.focus();
@@ -445,11 +464,11 @@ function submitRestock() {
     return;
   }
 
-  // 2. UI Loading State
+  // Loading State
   btn.textContent = '...';
   btn.disabled = true;
 
-  // 3. Prepare Cart Data (The "Snapshot")
+  // Prepare Cart Data (The "Snapshot")
   var snap = Object.entries(cart)
     .filter(function(e) { return e[1] > 0; })
     .map(function(e) { 
@@ -461,16 +480,6 @@ function submitRestock() {
     });
 
   var itemListString = snap.map(function(i) { return i.name; }).join(', ');
-
-  // 4. Analytics Tracking (PostHog & Custom Event)
-  if (typeof posthog !== 'undefined') {
-    posthog.identify(email, {
-      email: email,
-      restock_interest: snap.map(function(i) { return i.name; }),
-      signup_source: 'checkout_soldout',
-      consented_at: new Date().toISOString()
-    });
-  }
   
   trackEvent('restock_email_signup', {
     email: email,
@@ -481,10 +490,10 @@ function submitRestock() {
     consented: true
   });
 
-  // 5. Klaviyo Integration (AJAX)
+  // Klaviyo Integration (AJAX)
   const formData = new FormData();
-  formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY); // Account Public Key
-  formData.append('g', CONFIG.KLAVIYO_LIST_ID);   // Target List ID
+  formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY); 
+  formData.append('g', CONFIG.KLAVIYO_LIST_ID); 
   formData.append('email', email);
   
   // Custom properties for Klaviyo profiles
@@ -511,7 +520,7 @@ function submitRestock() {
 }
   function trackEvent(name, props) {
     props=props||{};
-    if(typeof posthog!=='undefined') posthog.capture(name,props);
+    // if(typeof posthog!=='undefined') posthog.capture(name,props);
     console.log('[Analytics]',name,props);
   }
 
