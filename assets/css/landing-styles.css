@@ -249,7 +249,7 @@ h1.hero-title em {
 }
 
 .product-price-sub {
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   color: var(--mid);
   font-weight: 300;
 }

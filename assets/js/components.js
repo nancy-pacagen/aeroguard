@@ -16,6 +16,7 @@ const Components = {
           <a href="index.html#products">Products</a>
           <ul class="dropdown-menu">
             <li><a href="nasalspray.html">Nasal Spray</a></li>
+            <li><a href="atomizer.html">Atomizer</a></li>
           </ul>
         </li>
       </ul>

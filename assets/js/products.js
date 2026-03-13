@@ -16,16 +16,16 @@ const PRODUCTS = {
     image: 'assets/images/nasal_spray_product.png',
     category: 'Allergy Relief'
   },
-  'inhaler': {
-    id: 'inhaler',
-    name: 'Inhaler',
+  'atomizer': {
+    id: 'atomizer',
+    name: 'Atomizer',
     price: 48,
     supply: '30-day supply',
     tagline: 'Targets throat and upper airway allergen exposure.',
     icon: '✨',
     color: 'linear-gradient(135deg,#e8f0f5,#dde8f0)',
     level: 'Throat Comfort Formula',
-    image: 'assets/images/inhaler_product.png',
+    image: 'assets/images/atomizer_product.png',
     category: 'Allergy Relief'
   },
   'bundle': {
