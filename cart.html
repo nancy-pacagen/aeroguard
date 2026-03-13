@@ -1,596 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    const CONFIG = {
-      KLAVIYO_PUBLIC_KEY: 'ReGnRK',
-      KLAVIYO_LIST_ID: 'TSBjUS'    
-    };
-  </script>
-  <!-- Meta Pixel Code -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1892840237898782');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1892840237898782&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Cart — AeroGuard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  
+  <link rel="stylesheet" href="assets/css/global.css" />
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --purple:#4a1060;
-      --purple-deep:#2d0a3a;
-      --purple-mid:#5e1a7a;
-      --purple-light:#7b2fa0;
-      --gold:#e4c77f;
-      --gold-light:#f0d896;
-      --cream:#f7f4ef;
-      --offwhite:#fafaf8;
-      --ink:#1a1220;
-      --mid:#5a4d6a;
-      --border:rgba(74,16,96,0.12);
-      --red:rgba(180,50,50,0.9);
-      --red-bg:rgba(180,50,50,0.08);
-      --red-border:rgba(180,50,50,0.2);
+    /* Cart-specific layout logic */
+    .page-wrap {
+      max-width: 1060px; margin: 0 auto;
+      padding: 6rem 1.5rem; display: grid; grid-template-columns: 1fr;
+      gap: 3rem; align-items: start;
     }
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Montserrat',sans-serif;
-      background:var(--offwhite);
-      color:var(--ink);
-      min-height:100vh;
-      display:flex;
-      flex-direction: column;
-      margin:0;
-    }
-    .page-container {
-      flex: 1 0 auto;
-    }
-    /* NAV */
-    nav{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:1rem 3rem;
-      background:#3d1a52;
-      border-bottom:1px solid rgba(228,199,127,0.18);
-      position:sticky;top:0;z-index:100;
-    }
-    .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none}
-    .nav-logo img{width:32px;height:32px;object-fit:contain}
-    .nav-logo-text{font-family:'Raleway',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold-light)}
-    .nav-links{display:flex;gap:2rem;list-style:none}
-    .nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s}
-    .nav-links a:hover{color:var(--gold-light)}
-    .nav-dropdown{position:relative}
-    .nav-dropdown > a{display:flex;align-items:center;gap:0.35rem}
-    .nav-dropdown > a::after{content:'';border:4px solid transparent;border-top-color:rgba(255,255,255,0.5);margin-top:3px;transition:transform 0.2s}
-    .nav-dropdown:hover > a::after{transform:rotate(180deg);margin-top:-3px;border-top-color:var(--gold-light)}
-    .dropdown-menu{
-      display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
-      background:#2d1a3e;border:1px solid rgba(228,199,127,0.15);border-radius:3px;
-      min-width:160px;list-style:none;
-      box-shadow:0 8px 24px rgba(0,0,0,0.35);
-      padding:0.75rem 0 0.4rem;
-    }
-    .dropdown-menu::before{
-      content:'';position:absolute;top:-0.75rem;left:0;right:0;height:0.75rem;background:transparent;
-    }
-    .nav-dropdown:hover .dropdown-menu{display:block}
-    .dropdown-menu li a{
-      display:block;padding:0.55rem 1.2rem;font-size:0.72rem;
-      letter-spacing:0.1em;text-transform:uppercase;
-      color:rgba(255,255,255,0.65);white-space:nowrap;
-    }
-    .dropdown-menu li a:hover{color:var(--gold-light);background:rgba(255,255,255,0.04)}
-    .nav-right{display:flex;align-items:center;gap:0.8rem}
-    .btn-sm{
-      font-family:'Montserrat',sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;
-      background:var(--purple-deep);color:white;padding:0.55rem 1.3rem;border-radius:2px;
-      text-decoration:none;border:none;cursor:pointer;transition:background 0.2s;font-weight:500;
-    }
-    .btn-sm:hover{background:var(--purple-mid)}
+    @media (min-width: 860px) { .page-wrap { grid-template-columns: 1fr 400px; padding: 8rem 2rem; } }
 
-    /* PAGE */
-    .page-wrap{
-      max-width:1060px;margin:0 auto;
-      padding:4rem 2rem 6rem;
-      display:grid;grid-template-columns:1fr 400px;
-      gap:4rem;align-items:start;
+    .cart-item {
+      display: grid; grid-template-columns: 72px 1fr auto;
+      gap: 1.2rem; align-items: center; padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .item-thumb { width: 72px; height: 72px; border-radius: 3px; display: flex; align-items: center; justify-content: center; }
+    
+    /* Sold Out States */
+    .soldout-active { opacity: 0.5; pointer-events: none; }
+    .soldout-reveal { display: none; margin-top: 1.5rem; border: 1px solid rgba(180,50,50,0.2); border-radius: 4px; overflow: hidden; }
+    .soldout-reveal.show { display: block; animation: slideUp 0.4s ease; }
+    
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--offwhite);
+      border: 1px solid var(--border);
+      color: var(--purple-deep);
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      border-radius: 2px;
     }
 
-    /* LEFT */
-    .cart-eyebrow{font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--purple-light);margin-bottom:0.5rem;display:inline-block;border-bottom:1.5px solid var(--gold);padding-bottom:0.2rem}
-    h1.cart-title{font-family:'Raleway',sans-serif;font-size:2.5rem;font-weight:700;color:var(--purple-deep);margin-bottom:2.5rem}
-    h1.cart-title em{font-style:italic;color:var(--purple-light)}
-
-    /* Empty */
-    .empty-cart{display:none;flex-direction:column;align-items:center;text-align:center;padding:4rem 2rem;border:1.5px dashed var(--border);border-radius:4px;background:white}
-    .empty-cart.show{display:flex}
-    .empty-icon{font-size:2.8rem;margin-bottom:1rem;opacity:0.35}
-    .empty-cart h3{font-family:'Raleway',sans-serif;font-size:1.4rem;font-weight:400;color:var(--purple-deep);margin-bottom:0.4rem}
-    .empty-cart p{font-size:0.82rem;color:var(--mid);font-weight:300;margin-bottom:1.6rem}
-    .btn-browse{
-      font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
-      background:var(--purple-deep);color:white;padding:0.75rem 2rem;border-radius:2px;
-      text-decoration:none;font-weight:500;transition:background 0.2s;
-    }
-    .btn-browse:hover{background:var(--purple-mid)}
-
-    /* FOOTER */
-    footer{background:var(--purple-deep);padding:2.5rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-    .footer-logo{display:flex;align-items:center;gap:0.6rem}
-    .footer-logo img{width:26px;height:26px;object-fit:contain;opacity:0.75}
-    .footer-logo-text{font-family:'Raleway',sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.65)}
-    footer small{font-size:0.65rem;color:rgba(255,255,255,0.22)}
-    .footer-links{display:flex;gap:1.5rem}
-    .footer-links a{font-size:0.68rem;color:rgba(255,255,255,0.28);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase}
-    .footer-links a:hover{color:rgba(255,255,255,0.55)}
-
-    /* Cart items */
-    .cart-items{display:flex;flex-direction:column}
-    .cart-item{
-      display:grid;grid-template-columns:72px 1fr auto;
-      gap:1.2rem;align-items:center;
-      padding:1.4rem 0;border-bottom:1px solid var(--border);
-      animation:slideIn 0.35s ease forwards;
-    }
-    @keyframes slideIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
-    .item-thumb{
-      width:72px;height:72px;border-radius:3px;overflow:hidden;
-      background:linear-gradient(135deg,#f0e8f5,#e8ddf0);
-      display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    }
-    .item-thumb img{width:100%;height:100%;object-fit:cover}
-    .item-name{font-family:'Raleway',sans-serif;font-size:1.1rem;font-weight:700;color:var(--purple-deep);margin-bottom:0.2rem}
-    .item-meta{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);opacity:0.55}
-    .item-soldout-pill{
-      display:none;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;
-      color:var(--red);background:var(--red-bg);border:1px solid var(--red-border);
-      padding:0.15rem 0.45rem;border-radius:10px;margin-left:0.5rem;
-    }
-    .soldout-active .item-soldout-pill{display:inline}
-    .item-controls{display:flex;align-items:center;gap:0.5rem;margin-top:0.7rem}
-    .soldout-active .item-controls{opacity:0.28;pointer-events:none}
-    .qty-btn{
-      width:24px;height:24px;border:1px solid var(--border);background:white;
-      color:var(--ink);font-size:0.9rem;cursor:pointer;border-radius:2px;
-      display:flex;align-items:center;justify-content:center;transition:all 0.15s;
-    }
-    .qty-btn:hover{border-color:var(--purple);color:var(--purple)}
-    .qty-display{font-size:0.85rem;font-weight:500;min-width:1.2rem;text-align:center}
-    .remove-btn{
-      font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;
-      color:var(--mid);opacity:0.4;background:none;border:none;cursor:pointer;
-      font-family:'Montserrat',sans-serif;padding:0 0.3rem;transition:opacity 0.2s;
-    }
-    .remove-btn:hover{opacity:0.8;color:var(--purple)}
-    .item-price{font-family:'Raleway',sans-serif;font-size:1.3rem;font-weight:700;color:var(--gold);text-align:right}
-    .soldout-active .item-price{text-decoration:line-through;opacity:0.28}
-
-
-
-    /* RIGHT PANEL */
-    .right-panel{position:sticky;top:90px;display:flex;flex-direction:column;gap:0}
-
-    /* Summary */
-    .summary-box{background:white;border:1px solid var(--border);border-radius:3px;padding:1.8rem}
-    .summary-title{font-family:'Raleway',sans-serif;font-size:1.2rem;font-weight:700;color:var(--purple-deep);margin-bottom:1.3rem;padding-bottom:1rem;border-bottom:2px solid var(--gold)}
-    .summary-row{display:flex;justify-content:space-between;font-size:0.82rem;color:var(--mid);margin-bottom:0.6rem;font-weight:300}
-    .summary-row.total{font-size:0.98rem;color:var(--purple-deep);font-weight:600;border-top:2px solid var(--gold);padding-top:0.9rem;margin-top:0.4rem;margin-bottom:0}
-    .green{color:#5a8a6e;font-weight:400}
-
-    .checkout-btn{
-      width:100%;font-family:'Montserrat',sans-serif;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;
-      background:var(--gold);color:var(--purple-deep);
-      padding:1rem;border:none;border-radius:2px;cursor:pointer;
-      transition:all 0.25s;font-weight:600;margin-top:1.4rem;
-      display:flex;align-items:center;justify-content:center;gap:0.5rem;
-    }
-    .checkout-btn:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,168,76,0.3)}
-
-    /* SOLD OUT PANEL */
-    .soldout-reveal{
-      display:none;flex-direction:column;margin-top:1.4rem;
-      border-radius:3px;overflow:hidden;
-      border:1px solid var(--red-border);
-      animation:revealDown 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
-    }
-    .soldout-reveal.show{display:flex}
-    @keyframes revealDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-
-    .soldout-header{
-      background:var(--red-bg);border-bottom:1px solid var(--red-border);
-      padding:0.9rem 1.2rem;display:flex;align-items:flex-start;gap:0.7rem;
-    }
-    .soldout-icon{font-size:1.2rem;line-height:1;margin-top:0.05rem;flex-shrink:0}
-    .soldout-heading small{display:block;font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:0.15rem;font-family:'Montserrat',sans-serif}
-    .soldout-heading{font-family:'Raleway',sans-serif;font-size:1rem;font-weight:700;color:var(--purple-deep)}
-
-    .soldout-body{background:var(--purple-deep);padding:1.2rem 1.2rem 1.4rem}
-    .soldout-sub{font-size:0.76rem;color:rgba(255,255,255,0.5);font-weight:300;line-height:1.65;margin-bottom:1rem}
-
-    .soldout-chips{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:1rem}
-    .soldout-chip{
-      font-size:0.62rem;letter-spacing:0.05em;
-      background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
-      color:rgba(255,255,255,0.55);padding:0.22rem 0.6rem;border-radius:20px;
-      display:flex;align-items:center;gap:0.3rem;
-    }
-    .soldout-chip::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--red);opacity:0.8;flex-shrink:0}
-
-    .restock-email-wrap{display:flex;border-radius:2px;overflow:hidden;border:1px solid rgba(255,255,255,0.14)}
-    .restock-input{
-      flex:1;padding:0.78rem 0.9rem;font-family:'Montserrat',sans-serif;font-size:0.8rem;
-      background:rgba(255,255,255,0.07);border:none;color:white;outline:none;min-width:0;
-      transition:background 0.2s;
-    }
-    .restock-input::placeholder{color:rgba(255,255,255,0.25)}
-    .restock-input:focus{background:rgba(255,255,255,0.11)}
-    .restock-submit{
-      font-family:'Montserrat',sans-serif;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;
-      background:var(--gold);color:var(--purple-deep);padding:0 1rem;border:none;cursor:pointer;
-      white-space:nowrap;transition:background 0.2s;flex-shrink:0;font-weight:600;
-    }
-    .restock-submit:hover{background:var(--gold-light)}
-    .restock-submit:disabled{background:#5a8a6e;cursor:default;color:white}
-
-    .consent-label{display:flex;align-items:flex-start;gap:0.5rem;margin-top:0.65rem;cursor:pointer}
-    .consent-label input[type="checkbox"]{margin-top:0.12rem;accent-color:var(--gold);flex-shrink:0;cursor:pointer}
-    .consent-label span{font-size:0.65rem;color:rgba(255,255,255,0.32);line-height:1.5}
-    .consent-label span a{color:rgba(255,255,255,0.45);text-decoration:underline;text-underline-offset:2px}
-    .restock-fine{font-size:0.62rem;color:rgba(255,255,255,0.18);margin-top:0.5rem;text-align:center}
-
-    /* Success */
-    .restock-success{display:none;align-items:center;gap:0.85rem}
-    .restock-success.show{display:flex}
-    .restock-success-icon{font-size:1.7rem;animation:bloomIn 0.5s cubic-bezier(0.34,1.56,0.64,1) forwards;flex-shrink:0}
-    @keyframes bloomIn{from{transform:scale(0) rotate(-20deg);opacity:0}to{transform:scale(1) rotate(0);opacity:1}}
-    .rst-title{font-family:'Raleway',sans-serif;font-size:0.95rem;color:white;font-weight:700;margin-bottom:0.2rem}
-    .rst-sub{font-size:0.7rem;color:rgba(255,255,255,0.4);line-height:1.5}
-
-    /* Fade */
-    .fade-load{opacity:0;transform:translateY(14px);animation:fadeLoad 0.5s ease forwards}
-    .fade-load:nth-child(2){animation-delay:0.1s}
-    .fade-load:nth-child(3){animation-delay:0.2s}
-    @keyframes fadeLoad{to{opacity:1;transform:translateY(0)}}
-
-    @media(max-width:860px){
-      nav{padding:1rem 1.5rem}
-      .page-wrap{grid-template-columns:1fr;padding:2.5rem 1.5rem 4rem;gap:2.5rem}
-      .right-panel{position:static}
+    .qty-btn:hover {
+      background: var(--purple-mid);
+      color: white;
+      border-color: var(--purple-mid);
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
-    <span class="nav-logo-text">AeroGuard</span>
-  </a>
-  <ul class="nav-links">
-    <li class="nav-dropdown">
-      <a href="index.html#products">Products</a>
-      <ul class="dropdown-menu">
-        <li><a href="nasalspray.html">Nasal Spray</a></li>
-      </ul>
-    </li>
-    <!-- <li><a href="index.html#how">How it Works</a></li> -->
-  </ul>
-  <div class="nav-right">
-    <a href="index.html#products" class="btn-sm">Shop Now</a>
-  </div>
-</nav>
+<div id="nav-placeholder"></div>
 
 <div class="page-wrap">
-
-  <!-- LEFT: CART  -->
-  <div class="fade-load">
-    <div class="cart-header">
-      <div class="cart-eyebrow">Your Selection</div>
-      <h1 class="cart-title">Your <em>cart</em></h1>
+  <div class="cart-left">
+    <div class="cart-header" style="margin-bottom: 2rem;">
+      <p class="section-eyebrow">Your Selection</p>
+      <h1 style="font-family: 'Raleway'; font-size: 2.5rem; color: var(--purple-deep);">Your Cart</h1>
     </div>
 
-    <!-- Empty state (shown when no items) -->
-    <div class="empty-cart" id="emptyCart">
-      <div class="empty-icon">🌸</div>
-      <h3>Your cart is empty</h3>
-      <p>Head back to the shop to add a product.</p>
-      <a href="index.html" class="btn-browse">Browse Products</a>
+    <div id="emptyCart" style="display:none; text-align:center; padding: 3rem; border: 1px dashed var(--border);">
+      <p>Your cart is empty.</p>
+      <a href="index.html#products" class="btn-sm" style="display:inline-block; margin-top: 1rem;">Shop Products</a>
     </div>
 
-    <!-- Cart items container -->
-    <div class="cart-items" id="cartItems"></div>
+    <div id="cartItemsList"></div>
   </div>
 
-  <!-- RIGHT PANEL -->
-  <div class="right-panel fade-load">
-    <div class="summary-box">
-      <div class="summary-title">Order Summary</div>
-      <div class="summary-row"><span>Subtotal</span><span id="subtotalVal">$0.00</span></div>
-      <div class="summary-row"><span>Shipping</span><span id="shippingVal" class="green">Free</span></div>
-      <div class="summary-row total"><span>Total</span><span id="totalVal">$0.00</span></div>
-
-      <button class="checkout-btn" id="checkoutBtn" onclick="handleCheckout()">
-        Proceed to Checkout &#8594;
-      </button>
-
-      <!-- SOLD OUT REVEAL -->
-      <div class="soldout-reveal" id="soldoutReveal">
-        <div class="soldout-header">
-          <div class="soldout-icon">&#128549;</div>
-          <div class="soldout-heading">
-            <small>Sold Out</small>
-            These items are unavailable
-          </div>
-        </div>
-        <div class="soldout-body">
-          <p class="soldout-sub">The items in your cart are sold out. Drop your email and we'll notify you the moment they're back in stock.</p>
-          <div class="soldout-chips" id="soldoutChips"></div>
-          <div id="restockFormWrap">
-            <div class="restock-email-wrap">
-              <input type="email" class="restock-input" id="restockEmail" placeholder="your@email.com"/>
-              <button class="restock-submit" id="restockBtn" onclick="submitRestock()">Notify Me</button>
-            </div>
-            <label class="consent-label" id="consentWrap">
-              <input type="checkbox" id="consentBox"/>
-              <span>I agree to receive notifications from Pacagen Inc. See our <a href="#" onclick="return false">Privacy Policy</a>.</span>
-            </label>
-            <p class="restock-fine" id="consentError" style="display:none;color:rgba(220,80,80,0.85)">Please check the box above to continue.</p>
-            <!-- <p class="restock-fine">One email when restocked. No marketing fluff.</p> -->
-          </div>
-          <div class="restock-success" id="restockSuccess">
-            <div class="restock-success-icon">&#127800;</div>
-            <div>
-              <div class="rst-title">You're on the list.</div>
-              <div class="rst-sub">We'll email you the moment these restock.</div>
-            </div>
-          </div>
-        </div>
+  <div class="cart-right">
+    <div style="background: white; padding: 2rem; border: 1px solid var(--border); position: sticky; top: 100px;">
+      <h3 style="font-family: 'Raleway'; margin-bottom: 1.5rem; border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem;">Order Summary</h3>
+      <div style="display:flex; justify-content: space-between; margin-bottom: 1rem;">
+        <span>Subtotal</span>
+        <span id="subtotalVal">$0.00</span>
+      </div>
+      <div style="display:flex; justify-content: space-between; margin-bottom: 1.5rem; color: #5a8a6e; font-weight: 500;">
+        <span>Shipping</span>
+        <span>Free</span>
+      </div>
+      <div style="display:flex; justify-content: space-between; font-weight: 700; font-size: 1.2rem; border-top: 1px solid var(--border); padding-top: 1rem;">
+        <span>Total</span>
+        <span id="totalVal">$0.00</span>
       </div>
 
+      <button id="checkoutBtn" class="mailing-submit" style="width:100%; height: 50px; margin-top: 2rem;" onclick="initiateCheckout()">
+        Proceed to Checkout
+      </button>
+
+      <div id="soldoutReveal" class="soldout-reveal">
+        <div style="background: rgba(180,50,50,0.05); padding: 1.5rem; color: var(--purple-deep);">
+          <p style="font-weight: 700; margin-bottom: 0.5rem;">Sold Out</p>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem; opacity: 0.8;">These items just went out of stock. Join the restock list to be notified first.</p>
+          <input type="email" id="restockEmail" placeholder="your@email.com" class="mailing-input" style="width: 100%; margin-bottom: 0.5rem;">
+          <button class="mailing-submit" style="width: 100%; height: 40px;" onclick="submitRestock()">Notify Me</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<footer>
-  <div class="footer-logo">
-    <img src ="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
-    <span class="footer-logo-text">AeroGuard</span>
-  </div>
-  <small>© 2026 AeroGuard. All rights reserved.</small>
-  <div class="footer-links">
-    <a href="#">Privacy</a><a href="#">Science</a><a href="#">Contact</a>
-  </div>
-</footer>
+<div id="footer-placeholder"></div>
+
+<script src="assets/js/products.js"></script>
+<script src="assets/js/tracking.js"></script>
+<script src="assets/js/cart-engine.js"></script>
+<script src="assets/js/components.js"></script>
 
 <script>
-  const PRODUCTS = {
-    'Nasal Spray': { price: 48, icon: '💜', color: 'linear-gradient(135deg,#f0e8f5,#e8ddf0)', level: 'Nasal Relief Formula' },
-    'Inhaler': { price: 48, icon: '✨', color: 'linear-gradient(135deg,#e8f0f5,#dde8f0)', level: 'Throat Comfort Formula' },
-    'Bundle': { price: 68, icon: '🌿', color: 'linear-gradient(135deg,#f5f0e8,#f0ead8)', level: 'Complete Bundle — Best Value' },
-  };
-
-  let cart = {};
-
-  function loadCartFromURL() {
-    const params = new URLSearchParams(window.location.search);
-    const cartParam = params.get('cart');
-    if (cartParam) {
-      try {
-        cart = JSON.parse(cartParam);
-        try { localStorage.setItem('aeroguard_cart', JSON.stringify(cart)); } catch(e) {}
-      } catch(e) {}
-    }
-    if (Object.keys(cart).length === 0) {
-      try {
-        const saved = localStorage.getItem('aeroguard_cart');
-        if (saved) cart = JSON.parse(saved);
-      } catch(e) {}
-    }
-    renderCart();
-  }
-
   function renderCart() {
-    const itemsEl = document.getElementById('cartItems');
-    const emptyEl = document.getElementById('emptyCart');
-    itemsEl.innerHTML = '';
-
-    const entries = Object.entries(cart).filter(([,qty]) => qty > 0);
-
-    if (entries.length === 0) {
-      emptyEl.classList.add('show');
-    } else {
-      emptyEl.classList.remove('show');
-
-      entries.forEach(([name, qty]) => {
-        const product = PRODUCTS[name];
-        if (!product) return;
-        const item = document.createElement('div');
-        item.className = 'cart-item';
-        item.innerHTML = `
-          <div class="item-thumb" style="background:${product.color}">
-            <span style="font-size:2rem">${product.icon}</span>
-          </div>
-          <div class="item-info">
-            <div class="item-name">
-              ${name}
-              <span class="item-soldout-pill">Sold out</span>
-            </div>
-            <div class="item-meta">${product.level}</div>
-            <div class="item-controls">
-              <button class="qty-btn" onclick="changeQty('${name}', -1)">−</button>
-              <span class="qty-display">${qty}</span>
-              <button class="qty-btn" onclick="changeQty('${name}', 1)">+</button>
-              <button class="remove-btn" onclick="removeItem('${name}')">Remove</button>
-            </div>
-          </div>
-          <div class="item-price">$${(product.price * qty).toFixed(0)}</div>
-        `;
-        itemsEl.appendChild(item);
-      });
-    }
-    updateSummary();
-  }
-
-  function changeQty(name, delta) {
-    cart[name] = (cart[name]||0)+delta;
-    if(cart[name]<=0) delete cart[name];
-    trackEvent(delta>0?'cart_qty_increase':'cart_qty_decrease',{product:name});
-    try { localStorage.setItem('aeroguard_cart', JSON.stringify(cart)); } catch(e) {}
-    renderCart();
-  }
-
-  function removeItem(name) {
-    trackEvent('cart_item_removed',{product:name});
-    delete cart[name];
-    try { localStorage.setItem('aeroguard_cart', JSON.stringify(cart)); } catch(e) {}
-    renderCart();
-  }
-
-  function updateSummary() {
-    var entries = Object.entries(cart).filter(function(e){return e[1]>0;});
-    var sub = entries.reduce(function(s,e){return s+(PRODUCTS[e[0]]?PRODUCTS[e[0]].price*e[1]:0);},0);
-    var ship = (sub === 0 || sub >= 45) ? 0 : 8;
-    document.getElementById('subtotalVal').textContent='$'+sub.toFixed(2);
-    document.getElementById('shippingVal').textContent=ship===0?'Free':'$'+ship.toFixed(2);
-    document.getElementById('shippingVal').className=ship===0?'green':'';
-    document.getElementById('totalVal').textContent='$'+(sub+ship).toFixed(2);
-  }
-
-  function handleCheckout() {
-    var entries = Object.entries(cart).filter(function(e){return e[1]>0;});
-    var total = entries.reduce(function(s,e){return s+(PRODUCTS[e[0]]?PRODUCTS[e[0]].price*e[1]:0);},0);
-    trackEvent('checkout_attempted',{items:entries.map(function(e){return{name:e[0],qty:e[1]};}),total:total,outcome:'sold_out'});
+    const container = document.getElementById('cartItemsList');
+    const emptyMsg = document.getElementById('emptyCart');
+    const items = Object.entries(Cart.state).filter(([_, qty]) => qty > 0);
     
-    // meta pixel tracking
-    if (typeof fbq === 'function') {
-      fbq('track', 'InitiateCheckout', {
-        content_category: 'Allergy Relief',
-        content_ids: entries.map(function(e) { return e[0].toLowerCase().replace(/\s+/g, '_'); }),
-        contents: entries.map(function(e) {
-          return {
-            id: e[0].toLowerCase().replace(/\s+/g, '_'),
-            quantity: e[1],
-            item_price: PRODUCTS[e[0]] ? PRODUCTS[e[0]].price : 0
-          };
-        }),
-        num_items: entries.reduce(function(s, e) { return s + e[1]; }, 0),
-        value: total,
-        currency: 'USD'
-      });
-    }
+    container.innerHTML = '';
     
-    document.getElementById('checkoutBtn').style.display='none';
-    document.getElementById('cartItems').classList.add('soldout-active');
-    var chips = document.getElementById('soldoutChips');
-    chips.innerHTML='';
-    entries.forEach(function(e){
-      var c=document.createElement('span');
-      c.className='soldout-chip';
-      c.textContent=e[0];
-      chips.appendChild(c);
+    if (items.length === 0) {
+      emptyMsg.style.display = 'block';
+      return;
+    }
+
+    let subtotal = 0;
+
+    items.forEach(([name, qty]) => {
+      const product = getProduct(name); // From products.js
+      if (!product) return;
+
+      subtotal += (product.price * qty);
+      
+      const row = document.createElement('div');
+      row.className = 'cart-item';
+      row.innerHTML = `
+        <div class="item-thumb" style="background: ${product.color}">${product.icon}</div>
+        <div>
+          <p style="font-weight:700; color: var(--purple-deep);">${product.name}</p>
+          <p style="font-size: 0.75rem; color: var(--mid);">${product.level}</p>
+          <div style="margin-top: 0.5rem; display:flex; gap: 1rem; align-items:center;">
+            <button class="qty-btn" onclick="updateQty('${product.name}', -1)" style="cursor:pointer;">-</button>
+            <span>${qty}</span>
+            <button class="qty-btn" onclick="updateQty('${product.name}', 1)" style="cursor:pointer;">+</button>
+          </div>
+        </div>
+        <p style="font-weight:700; color: var(--gold);">$${product.price * qty}</p>
+      `;
+      container.appendChild(row);
     });
+
+    document.getElementById('subtotalVal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('totalVal').textContent = `$${subtotal.toFixed(2)}`;
+  }
+
+  function updateQty(name, delta) {
+    Cart.state[name] = (Cart.state[name] || 0) + delta;
+    if (Cart.state[name] <= 0) delete Cart.state[name];
+    Cart.save(); //
+    renderCart();
+    Cart.updateUI(); //
+  }
+
+  function initiateCheckout() {
+    Tracker.event('InitiateCheckout', { cart: Cart.state }); //
+    document.getElementById('checkoutBtn').style.display = 'none';
+    document.getElementById('cartItemsList').classList.add('soldout-active');
     document.getElementById('soldoutReveal').classList.add('show');
-    setTimeout(function(){document.getElementById('restockEmail').focus();},500);
   }
 
-const KLAVIYO_PUBLIC_KEY = 'ReGnRK';
-const KLAVIYO_LIST_ID = 'TSBjUS';
-
-// --- Restock Function ---
-function submitRestock() {
-  var emailInput = document.getElementById('restockEmail');
-  var email = emailInput.value.trim();
-  var consented = document.getElementById('consentBox').checked;
-  var btn = document.getElementById('restockBtn');
-
-  // Validation Logic
-  if (!email || !email.includes('@')) {
-    emailInput.style.borderColor = 'rgba(180,50,50,0.7)';
-    emailInput.focus();
-    return;
-  }
-  if (!consented) {
-    document.getElementById('consentError').style.display = 'block';
-    return;
+  function submitRestock() {
+    const email = document.getElementById('restockEmail').value;
+    if(email.includes('@')) {
+      Tracker.event('RestockSignup', { email: email, items: Cart.state });
+      alert('You are on the list!');
+    }
   }
 
-  // Loading State
-  btn.textContent = '...';
-  btn.disabled = true;
-
-  // Prepare Cart Data (The "Snapshot")
-  var snap = Object.entries(cart)
-    .filter(function(e) { return e[1] > 0; })
-    .map(function(e) { 
-      return { 
-        name: e[0], 
-        qty: e[1], 
-        price: PRODUCTS[e[0]] ? PRODUCTS[e[0]].price : 0 
-      }; 
-    });
-
-  var itemListString = snap.map(function(i) { return i.name; }).join(', ');
-  
-  trackEvent('restock_email_signup', {
-    email: email,
-    source: 'checkout_soldout',
-    cart_items: snap,
-    cart_total: snap.reduce(function(s, i) { return s + i.price * i.qty; }, 0),
-    intent: 'very_high',
-    consented: true
-  });
-
-  // Klaviyo Integration (AJAX)
-  const formData = new FormData();
-  formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY); 
-  formData.append('g', CONFIG.KLAVIYO_LIST_ID); 
-  formData.append('email', email);
-  
-  // Custom properties for Klaviyo profiles
-  formData.append('$fields', '$source,restock_items');
-  formData.append('$source', 'Checkout Restock Form');
-  formData.append('restock_items', itemListString);
-
-  fetch(`https://manage.kmail-lists.com/ajax/subscriptions/subscribe`, {
-    method: 'POST',
-    body: formData,
-    mode: 'no-cors' // Handles cross-origin security
-  })
-  .then(function() {
-    // 6. Success UI Transition
-    document.getElementById('restockFormWrap').style.display = 'none';
-    document.getElementById('restockSuccess').classList.add('show');
-  })
-  .catch(function(err) {
-    console.error('Klaviyo Sync Error:', err);
-    // Fallback: Still show success to the user as data was likely caught by analytics
-    document.getElementById('restockFormWrap').style.display = 'none';
-    document.getElementById('restockSuccess').classList.add('show');
-  });
-}
-  function trackEvent(name, props) {
-    props=props||{};
-    // if(typeof posthog!=='undefined') posthog.capture(name,props);
-    console.log('[Analytics]',name,props);
-  }
-
-  window.addEventListener('load',function(){
-    loadCartFromURL();
-    trackEvent('cart_page_view',{referrer:document.referrer});
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCart();
+    Tracker.pageView('Cart Page');
   });
 </script>
 </body>

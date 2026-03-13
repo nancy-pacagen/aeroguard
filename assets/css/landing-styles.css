@@ -1,0 +1,290 @@
+/* ── LANDING PAGE LAYOUT ──────────────────────────────────
+
+/* Restore the Split Hero */
+.hero {
+  min-height: 100vh;
+  background: var(--purple-deep) !important; /* Forces original branding */
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile Default */
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr 1fr; /* Restores 50/50 Desktop Split */
+  }
+}
+
+.hero-img {
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 860px) {
+  .hero-img { display: none; } /* Matches original mobile behavior */
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8rem 2rem 4rem; /* Mobile Spacing */
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 860px) {
+  .hero-text {
+    padding: 8rem 4rem 5rem 2.5rem; /* Original Desktop Padding */
+  }
+}
+
+/* ── HERO TYPOGRAPHY & BUTTONS ──────────────────────────── */
+
+h1.hero-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem); /* Matches original scale */
+  font-weight: 700;
+  line-height: 1.12;
+  color: white;
+  margin-bottom: 1.4rem;
+}
+
+h1.hero-title em {
+  font-style: italic;
+  color: var(--gold-light); /* Restores gold highlights */
+}
+
+.hero-body {
+  font-size: 0.92rem;
+  /*font-weight: 300;*/
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.6); /* Original muted white */
+  max-width: 42ch;
+  margin-bottom: 2.5rem;
+}
+
+/* Gold Explore Button */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--gold);
+  color: var(--purple-deep);
+  padding: 0.88rem 2.2rem;
+  border-radius: 2px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s;
+  width: fit-content;
+}
+
+.hero-cta:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(201,168,76,0.3);
+}
+
+/* ── HERO PROOF SECTION ─────────────────────────────────── */
+.hero-proof {
+  margin-top: 2.5rem; /* Matches original vertical spacing */
+  display: flex; /* Aligns the line and text horizontally */
+  align-items: center; /* Vertically centers the text with the line */
+  gap: 1rem; /* Spacing between the line and the text block */
+}
+
+.proof-line {
+  width: 2rem; /* Exact length of the horizontal line */
+  height: 1px; /* Line thickness */
+  background: rgba(255, 255, 255, 0.18); /* Muted white color */
+}
+
+.proof-text {
+  font-size: 0.82rem; /* Small, secondary text size */
+  color: rgba(255, 255, 255, 0.38); /* Faded white for the sub-text */
+  line-height: 1.5; /* Line height for readability */
+}
+
+.proof-text strong {
+  display: block; /* Forces the bold title to its own line */
+  color: rgba(255, 255, 255, 0.6); /* Brighter white for the title */
+  font-weight: 400; /* Semi-bold weight */
+}
+
+/*--- product section text? ---*/
+/* Center the Product Section Header */
+.section-header {
+  text-align: center; /* Centers text globally within the header */
+  margin-bottom: 4rem; /* Restores original spacing before the grid */
+}
+
+/* Ensure the eyebrow is centered if it's an inline-block */
+.section-eyebrow {
+  display: inline-block; /* Allows text-align to affect it */
+  margin: 0 auto 0.8rem; /* Centers the block itself */
+}
+
+.section-sub {
+  margin: 0 auto; /* Centers the description paragraph */
+  max-width: 50ch; /* Restores the original readable line length */
+}
+
+/* ── PRODUCT SECTION ────────────────────────────────────── */
+
+.products { padding: 6rem 1.5rem; background: var(--cream); }
+@media (min-width: 860px) { .products { padding: 6rem 3rem; } }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 860px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.product-card {
+  background: white;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE HEIGHT FIX: Use 4/3 ratio so images aren't "too tall" on mobile */
+.product-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+  /* aspect-ratio: 1; */
+  background: linear-gradient(135deg, #f0e8f5, #e8ddf0);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-badge {
+  position: absolute; /* */
+  top: 0.9rem; /* */
+  left: 0.9rem; /* */
+  font-size: 0.58rem; /* */
+  letter-spacing: 0.12em; /* */
+  text-transform: uppercase; /* */
+  padding: 0.22rem 0.6rem; /* */
+  border-radius: 1px; /* */
+  font-weight: 600; /* */
+  z-index: 2; /* Ensures it stays above the image */
+}
+
+.product-footer {
+  display: flex; /* */
+  align-items: center; /* */
+  justify-content: space-between; /* */
+}
+
+/* Specific colors for the "Most Popular" badge */
+.badge-best {
+  background: var(--purple-deep); /* */
+  color: white; /* */
+}
+
+.badge-bundle{
+  background: var(--gold); /* */
+  color: var(--purple-deep); /* */
+}
+
+.product-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Changed to contain to ensure product isn't cropped */
+  padding: 0;    /* Adds breathing room around the product image */
+}
+
+/* ── PRODUCT INFO & FONTS ──────────────────────────────── */
+
+.product-info { padding: 1.3rem 1.5rem 1.7rem; }
+
+.product-name {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+  margin-bottom: 0.3rem;
+}
+
+.product-tagline {
+  font-size: 0.78rem;
+  color: var(--mid);
+  font-weight: 300;
+  line-height: 1.55;
+  margin-bottom: 1.2rem;
+}
+
+.product-price {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.product-price-sub {
+  font-size: 0.62rem;
+  color: var(--mid);
+  font-weight: 300;
+}
+
+/* ── STATEMENT SECTION ─────────────────────────────────── */
+
+.statement {
+  border-top: 3px solid var(--gold);
+  padding: 6rem 3rem;
+  background: var(--purple-deep);
+  text-align: center;
+}
+
+.statement-kicker {
+  font-size: 0.9rem; /* Matches original small size */
+  letter-spacing: 0.2em; /* Restores the wide tracking */
+  font-weight: bold;
+  text-transform: uppercase; /* Forces all caps */
+  color: rgba(255, 255, 255, 0.35); /* Restores the original faded white */
+  margin-bottom: 2rem; /* Spacing before the main statement text */
+  position: relative; /* Essential for z-index layering */
+  z-index: 1; /* Ensures it sits above any background glow */
+}
+
+.statement-body {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.35rem, 2.4vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: white;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.statement-body em {
+  font-style: italic;
+  color: var(--gold-light);
+} 

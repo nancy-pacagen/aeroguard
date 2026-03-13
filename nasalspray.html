@@ -2,13 +2,6 @@
 <html lang="en">
 <head>
   <script>
-    const CONFIG = {
-      KLAVIYO_PUBLIC_KEY: 'ReGnRK',
-      KLAVIYO_LIST_ID: 'XnPQAs'
-    };
-  </script>
-  <!-- Meta Pixel Code -->
-  <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
   n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -23,764 +16,132 @@
   <noscript><img height="1" width="1" style="display:none"
   src="https://www.facebook.com/tr?id=1892840237898782&ev=PageView&noscript=1"
   /></noscript>
-  <!-- End Meta Pixel Code -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AeroGuard Nasal Spray — Dust Allergen Neutralizing Nasal Spray</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --purple: #4a1060;
-      --purple-deep: #2d0a3a;
-      --purple-mid: #5e1a7a;
-      --purple-light: #7b2fa0;
-      --gold: #e4c77f;
-      --gold-light: #f0d896;
-      --cream: #f7f4ef;
-      --offwhite: #fafaf8;
-      --ink: #1a1220;
-      --mid: #5a4d6a;
-      --border: rgba(74,16,96,0.12);
-    }
-
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: var(--offwhite);
-      color: var(--ink);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV (from index.html) ─────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 3rem;
-      background: #3d1a52;
-      border-bottom: 1px solid rgba(228,199,127,0.18);
-    }
-    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
-    .nav-logo img { width: 36px; height: 36px; object-fit: contain; }
-    .nav-logo-text { font-family: 'Raleway', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--gold-light); }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold-light); }
-    .nav-dropdown{position:relative}
-    .nav-dropdown > a{display:flex;align-items:center;gap:0.35rem}
-    .nav-dropdown > a::after{content:'';border:4px solid transparent;border-top-color:rgba(255,255,255,0.5);margin-top:3px;transition:transform 0.2s}
-    .nav-dropdown:hover > a::after{transform:rotate(180deg);margin-top:-3px;border-top-color:var(--gold-light)}
-    .dropdown-menu{
-      display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);
-      background:#2d1a3e;border:1px solid rgba(228,199,127,0.15);border-radius:3px;
-      min-width:160px;list-style:none;
-      box-shadow:0 8px 24px rgba(0,0,0,0.35);
-      padding:0.75rem 0 0.4rem;
-    }
-    .dropdown-menu::before{
-      content:'';position:absolute;top:-0.75rem;left:0;right:0;height:0.75rem;background:transparent;
-    }
-    .nav-dropdown:hover .dropdown-menu{display:block}
-    .dropdown-menu li a{
-      display:block;padding:0.55rem 1.2rem;font-size:0.72rem;
-      letter-spacing:0.1em;text-transform:uppercase;
-      color:rgba(255,255,255,0.65);white-space:nowrap;
-    }
-    .dropdown-menu li a:hover{color:var(--gold-light);background:rgba(255,255,255,0.04)}
-    .nav-right { display: flex; align-items: center; gap: 0.8rem; }
-    .btn-sm {
-      font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
-      background: var(--purple-deep); color: white; padding: 0.55rem 1.3rem; border-radius: 2px;
-      text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; font-weight: 500;
-    }
-    .btn-sm:hover { background: var(--purple-mid); }
-    .nav-cart-btn {
-      position: relative; background: none; border: none; cursor: pointer;
-      color: rgba(255,255,255,0.8); padding: 0.4rem; display: flex; align-items: center;
-      transition: opacity 0.2s;
-    }
-    .nav-cart-btn:hover { opacity: 0.65; }
-    .nav-cart-badge {
-      display: none; position: absolute; top: -5px; right: -5px;
-      background: var(--gold); color: var(--purple-deep);
-      border-radius: 50%; width: 16px; height: 16px;
-      font-size: 0.58rem; font-weight: 700;
-      align-items: center; justify-content: center;
-    }
-
-    /* ── HERO / PDP SECTION ───────────────────────────────── */
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 82vh;
-      background: var(--purple-deep);
-      overflow: hidden;
-      position: relative;
-      padding-top: 72px; /* offset for fixed nav */
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent 55%, rgba(201,168,76,.07) 55%);
-      pointer-events: none;
-    }
-
-    .hero__image-col {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__image-col img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      opacity: .93;
-    }
-
-    .hero__content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 72px 64px 72px 56px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__eyebrow {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .hero__title {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
-      font-weight: 700;
-      color: white;
-      line-height: 1.12;
-      margin-bottom: 28px;
-    }
-
-    .hero__divider {
-      width: 48px;
-      height: 2px;
-      background: var(--gold);
-      margin-bottom: 28px;
-      border-radius: 2px;
-    }
-
-    .hero__price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 32px;
-    }
-
-    .hero__price {
-      font-family: 'Raleway', sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: white;
-    }
-
-    .hero__supply {
-      font-size: .85rem;
-      color: rgba(255,255,255,.55);
-      font-weight: 300;
-      letter-spacing: .03em;
-    }
-
-    .hero__desc {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,.78);
-      margin-bottom: 16px;
-      font-weight: 300;
-    }
-
-    .hero__desc strong {
-      color: white;
-      font-weight: 500;
-    }
-
-    .hero__desc:last-of-type {
-      margin-bottom: 44px;
-    }
-
-    /* ── ADD TO CART BUTTON (PDP style) ─────────────────────── */
-    .btn-atc {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--gold);
-      color: var(--purple-deep);
-      font-family: 'Montserrat', sans-serif;
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: 17px 40px;
-      border: none;
-      cursor: pointer;
-      transition: background .2s, transform .15s;
-      align-self: flex-start;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-atc:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-atc svg { flex-shrink: 0; }
-
-    /* Added state: slide-in checkmark overlay */
-    .btn-atc::after {
-      content: '✓  Added to Cart';
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #5a8a6e;
-      color: white;
-      font-size: .85rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      transform: translateY(110%);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-    }
-
-    .btn-atc.added::after { transform: translateY(0); }
-    .btn-atc.added { transform: none; }
-
-    /* ── FAQ / BOTTOM SECTION ─────────────────────────────── */
-    .bottom {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: calc(82vh - 72px);
-      background: var(--cream);
-      align-items: center;
-    }
-
-    .bottom__image-col {
-      position: relative;
-      overflow: hidden;
-      align-self: stretch;
-    }
-
-    .bottom__image-wrapper {
-      position: absolute;
-      inset: 0;
-    }
-
-    .bottom__image-col img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    .bottom__faq {
-      padding: 72px 64px 72px 40px;
-    }
-
-    .faq__label {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 500;
-      font-size: .72rem;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 36px;
-    }
-
-    .faq__item {
-      border-top: 1px solid rgba(59,31,94,.15);
-    }
-
-    .faq__item:last-child {
-      border-bottom: 1px solid rgba(59,31,94,.15);
-    }
-
-    .faq__question {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 0;
-      cursor: pointer;
-      user-select: none;
-      gap: 16px;
-    }
-
-    .faq__question span {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ink);
-      transition: color .2s;
-    }
-
-    .faq__question:hover span {
-      color: var(--purple-mid);
-    }
-
-    .faq__icon {
-      flex-shrink: 0;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid var(--purple-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--purple-mid);
-      transition: background .2s, color .2s, transform .3s;
-    }
-
-    .faq__item.open .faq__icon {
-      background: var(--purple-deep);
-      color: white;
-      border-color: var(--purple-deep);
-      transform: rotate(45deg);
-    }
-
-    .faq__answer {
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height .38s cubic-bezier(.4,0,.2,1), padding .3s;
-      padding: 0;
-    }
-
-    .faq__item.open .faq__answer {
-      max-height: 400px;
-      padding-bottom: 22px;
-    }
-
-    .faq__answer p {
-      font-size: .95rem;
-      line-height: 1.72;
-      color: var(--mid);
-      font-weight: 300;
-    }
-
-    /* ── MAILING LIST (from index.html) ───────────────────── */
-    .mailing { padding: 5rem 3rem; background: var(--cream); text-align: center; border-top: 1px solid var(--border); }
-    .section-eyebrow { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 0.8rem; display: inline-block; border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; }
-    h2.section-title { font-family: 'Raleway', sans-serif; font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 700; color: var(--purple-deep); margin-bottom: 0.7rem; }
-    .mailing h2.section-title { margin-bottom: 0.6rem; }
-    .mailing-sub { font-size: 0.88rem; color: var(--mid); font-weight: 300; margin: 0.5rem auto 2rem; max-width: 46ch; line-height: 1.7; }
-    .mailing-form { display: flex; max-width: 400px; margin: 0 auto; border-radius: 2px; overflow: hidden; box-shadow: 0 4px 20px rgba(74,16,96,0.1); }
-    .mailing-input { flex: 1; padding: 0.85rem 1.1rem; font-family: 'Montserrat', sans-serif; font-size: 0.82rem; border: 1px solid var(--border); border-right: none; background: white; color: var(--ink); outline: none; }
-    .mailing-input:focus { border-color: rgba(74,16,96,0.35); }
-    .mailing-submit { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; background: var(--gold); color: var(--purple-deep); padding: 0 1.5rem; border: none; cursor: pointer; transition: background 0.2s; white-space: nowrap; font-weight: 600; }
-    .mailing-submit:hover { background: var(--purple-mid); color: white; }
-    .mailing-note { font-size: 0.65rem; color: var(--mid); opacity: 0.5; margin-top: 0.8rem; }
-
-    /* ── FOOTER (from index.html) ─────────────────────────── */
-    footer {
-      background: var(--purple-deep);
-      padding: 2.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-logo { display: flex; align-items: center; gap: 0.6rem; }
-    .footer-logo img { width: 26px; height: 26px; object-fit: contain; opacity: 0.75; }
-    .footer-logo-text { font-family: 'Raleway', sans-serif; font-size: 0.95rem; color: rgba(255,255,255,0.65); }
-    footer small { font-size: 0.65rem; color: rgba(255,255,255,0.22); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { font-size: 0.68rem; color: rgba(255,255,255,0.28); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; }
-    .footer-links a:hover { color: rgba(255,255,255,0.55); }
-
-    /* ── CART TOAST (from index.html) ─────────────────────── */
-    .cart-toast {
-      position: fixed; bottom: 2rem; right: 2rem; z-index: 200;
-      background: var(--purple-deep); color: white;
-      padding: 0.85rem 1.3rem; border-radius: 3px;
-      display: flex; align-items: center; gap: 0.8rem; font-size: 0.78rem;
-      transform: translateY(130%); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3); cursor: pointer;
-      border: 1px solid rgba(201,168,76,0.2);
-    }
-    .cart-toast.show { transform: translateY(0); }
-    .toast-badge {
-      background: var(--gold); color: var(--purple-deep); border-radius: 50%;
-      width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
-      font-size: 0.62rem; font-weight: 700; flex-shrink: 0;
-    }
-    .toast-hint { opacity: 0.38; font-size: 0.65rem; margin-left: 0.3rem; }
-
-    /* ── FADE UP ANIMATION ────────────────────────────────── */
-    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
-
-    /* ── RESPONSIVE ───────────────────────────────────────── */
-    @media (max-width: 860px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-
-      .hero,
-      .bottom {
-        grid-template-columns: 1fr;
-      }
-
-      .hero__image-col {
-        height: 46vw;
-        min-height: 260px;
-      }
-
-      .hero__content {
-        padding: 48px 32px;
-      }
-
-      .bottom__image-col {
-        min-height: 46vw;
-      }
-
-      .bottom__faq {
-        padding: 40px 32px 56px;
-      }
-
-      footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
-      .mailing { padding: 4rem 1.5rem; }
-    }
-
-    @media (max-width: 520px) {
-      .hero__content { padding: 36px 20px; }
-      .bottom__faq { padding: 32px 20px 48px; }
-
-    }
-  </style>
+  
+  <link rel="stylesheet" href="assets/css/global.css" />
+  <link rel="stylesheet" href="assets/css/pdp-shared.css" />
 </head>
 <body>
 
-<!-- ── NAV (from index.html) ──────────────────────────────── -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
-    <span class="nav-logo-text">AeroGuard</span>
-  </a>
-  <ul class="nav-links">
-    <li class="nav-dropdown">
-      <a href="index.html#products">Products</a>
-      <ul class="dropdown-menu">
-        <li><a href="nasalspray.html">Nasal Spray</a></li>
-      </ul>
-    </li>
-    <!-- <li><a href="index.html#how">How it Works</a></li> -->
-  </ul>
-  <div class="nav-right">
-    <a href="index.html#products" class="btn-sm">Shop Now</a>
-    <button class="nav-cart-btn" id="navCart" onclick="goToCart()">
-      <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-      </svg>
-      <span class="nav-cart-badge" id="navCartBadge">0</span>
-    </button>
-  </div>
-</nav>
+  <div id="nav-placeholder"></div>
 
-<!-- ── HERO / PDP ──────────────────────────────────────────── -->
-<section class="hero">
-
-  <div class="hero__image-col">
-    <img src="assets/images/spray_faqshot.png" alt="Person using AeroGuard Nasal Spray" />
-  </div>
-
-  <div class="hero__content">
-    <p class="hero__eyebrow">AeroGuard</p>
-
-    <h1 class="hero__title">
-      Dust Allergen<br>Neutralizing<br>Nasal Spray
-    </h1>
-
-    <div class="hero__divider"></div>
-
-    <div class="hero__price-row">
-      <span class="hero__price">$48</span>
-      <span class="hero__supply">30-day supply</span>
+  <section class="hero">
+    <div class="hero__image-col">
+      <img src="assets/images/spray_faqshot.png" alt="Person using AeroGuard Nasal Spray" />
     </div>
 
-    <p class="hero__desc">
-      Works <strong>directly inside your nasal cavity</strong>, the place where airborne allergens first enter your body.
-    </p>
+    <div class="hero__content">
+      <p class="hero__eyebrow">AeroGuard</p>
+      <h1 class="hero__title">Dust Allergen<br>Neutralizing<br>Nasal Spray</h1>
+      <div class="hero__divider" style="width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; border-radius: 2px;"></div>
+      <div class="hero__price-row">
+        <span class="hero__price">$48</span>
+        <span class="hero__supply">30-day supply</span>
+      </div>
 
-    <p class="hero__desc">
-      Fine mist spray contains antibodies engineered to <strong>neutralize dust allergens before they trigger irritation.</strong>
-    </p>
+      <p class="hero__desc" style="color: rgba(255,255,255,.78); margin-bottom: 16px; font-weight: 300;">
+        Works <strong>directly inside your nasal cavity</strong>, the place where airborne allergens first enter your body.
+      </p>
 
-    <button class="btn-atc" id="pdpAtcBtn" onclick="addToCart(this, 'Nasal Spray', 48)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-      </svg>
-      Add to Cart
-    </button>
-  </div>
+      <p class="hero__desc" style="color: rgba(255,255,255,.78); margin-bottom: 44px; font-weight: 300;">
+        Fine mist spray contains antibodies engineered to <strong>neutralize dust allergens before they trigger irritation.</strong>
+      </p>
 
-</section>
+      <button class="btn-atc" onclick="Cart.add('nasal-spray')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        Add to Cart
+      </button>
+    </div>
+  </section>
 
-<!-- ── FAQ / BOTTOM ────────────────────────────────────────── -->
-<section class="bottom">
-
-  <div class="bottom__image-col">
-    <div class="bottom__image-wrapper">
+  <section class="bottom">
+    <div class="bottom__image-col">
       <img src="assets/images/spray_productshot.png" alt="AeroGuard Nasal Spray bottle" />
     </div>
-  </div>
 
-  <div class="bottom__faq">
-    <p class="faq__label">Have questions?</p>
+    <div class="bottom__faq">
+      <p class="section-eyebrow">Have questions?</p>
 
-    <div class="faq__item">
-      <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
-        <span>What are the ingredients?</span>
-        <div class="faq__icon">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
-          </svg>
+      <div class="faq__item">
+        <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span>What are the ingredients?</span>
+          <div class="faq__icon">+</div>
+        </div>
+        <div class="faq__answer">
+          <p>AeroGuard uses a proprietary antibody blend in a saline solution. Our formula is preservative-free and designed for daily use.</p>
         </div>
       </div>
-      <div class="faq__answer">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Placeholder text for ingredient details — e.g., antibody blend, saline solution, preservative-free formula.</p>
-      </div>
-    </div>
 
-    <div class="faq__item">
-      <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
-        <span>How do I use the spray?</span>
-        <div class="faq__icon">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
-          </svg>
+      <div class="faq__item">
+        <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span>How do I use the spray?</span>
+          <div class="faq__icon">+</div>
+        </div>
+        <div class="faq__answer">
+          <p>Tilt your head slightly forward, insert the nozzle gently, and press once per nostril. Apply once daily or as directed for continuous protection.</p>
         </div>
       </div>
-      <div class="faq__answer">
-        <p>Placeholder usage instructions — e.g., tilt head slightly, insert nozzle gently, press once per nostril. Apply once daily or as directed. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
 
-    <div class="faq__item">
-      <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
-        <span>How is AeroGuard different?</span>
-        <div class="faq__icon">
-          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/>
-          </svg>
+      <div class="faq__item">
+        <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
+          <span>How is AeroGuard different?</span>
+          <div class="faq__icon">+</div>
+        </div>
+        <div class="faq__answer">
+          <p>Unlike antihistamines that mask symptoms, AeroGuard's antibody technology neutralizes allergens at the point of entry. It is steroid-free and non-drowsy.</p>
         </div>
       </div>
-      <div class="faq__answer">
-        <p>Placeholder differentiator copy — e.g., unlike antihistamines that mask symptoms, AeroGuard's antibody technology neutralizes allergens at the point of entry. Steroid-free and non-drowsy. Lorem ipsum dolor sit amet.</p>
-      </div>
     </div>
+  </section>
 
+  <section class="mailing">
+    <div class="section-eyebrow fade-up">Stay Informed</div>
+    <h2 class="section-title fade-up">Mailing List</h2>
+    <p class="mailing-sub fade-up" style="font-size: 0.88rem; color: var(--mid); margin-bottom: 2rem;">Sign up for early access to new formulations and exclusive discounts.</p>
+    <div class="mailing-form fade-up">
+      <input type="email" class="mailing-input" id="mailingEmail" placeholder="your@email.com"/>
+      <button class="mailing-submit" onclick="submitMailing()">Subscribe</button>
+    </div>
+    <p class="mailing-note" style="font-size: 0.65rem; color: var(--mid); opacity: 0.5; margin-top: 0.8rem;">By subscribing, you agree to receive marketing emails from Pacagen Inc.</p>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <div class="cart-toast" id="cartToast" onclick="window.location.href='cart.html'">
+    <div class="toast-badge" id="toastBadge">0</div>
+    <span id="toastMsg">Nasal Spray added</span>
+    <span style="opacity: 0.38; font-size: 0.65rem; margin-left: 0.3rem;">· View Cart →</span>
   </div>
-</section>
 
-<!-- ── MAILING LIST (from index.html) ─────────────────────── -->
-<section class="mailing">
-  <div class="section-eyebrow fade-up">Stay Informed</div>
-  <h2 class="section-title fade-up">Mailing List</h2>
-  <p class="mailing-sub fade-up">Sign up for early access to new formulations and exclusive discounts.</p>
-  <div class="mailing-form fade-up">
-    <input type="email" class="mailing-input" id="mailingEmail" placeholder="your@email.com"/>
-    <button class="mailing-submit" onclick="submitMailing()">Subscribe</button>
-  </div>
-  <p class="mailing-note">By subscribing, you agree to receive marketing emails from Pacagen Inc. Unsubscribe anytime.</p>
-</section>
+  <script src="assets/js/products.js"></script>
+  <script src="assets/js/tracking.js"></script>
+  <script src="assets/js/cart-engine.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/ui-init.js"></script>
 
-<!-- ── FOOTER (from index.html) ───────────────────────────── -->
-<footer>
-  <div class="footer-logo">
-    <img src="assets/images/aeroguard-logo.png" alt="AeroGuard logo">
-    <span class="footer-logo-text">AeroGuard</span>
-  </div>
-  <small>© 2026 AeroGuard. All rights reserved.</small>
-  <div class="footer-links">
-    <a href="#">Privacy</a><a href="#">Science</a><a href="#">Contact</a>
-  </div>
-</footer>
+  <script>
+    /**
+     * Page-Specific Logic
+     */
+    Tracker.pageView('Nasal Spray PDP');
 
-<!-- ── CART TOAST (from index.html) ───────────────────────── -->
-<div class="cart-toast" id="cartToast" onclick="goToCart()">
-  <div class="toast-badge" id="toastBadge">0</div>
-  <span id="toastMsg">Nasal Spray added</span>
-  <span class="toast-hint">· View Cart →</span>
-</div>
-
-<script>
-  // ── Cart state (matches index.html) ─────────────────────
-  let cartState = JSON.parse(localStorage.getItem('aeroguard_cart') || '{}');
-  let cartCount = Object.values(cartState).reduce(function(a,b){return a+b;}, 0);
-
-  window.addEventListener('DOMContentLoaded', function() {
-    if (cartCount > 0) {
-      var badge = document.getElementById('navCartBadge');
-      badge.style.display = 'flex';
-      badge.textContent = cartCount;
-    }
-  });
-
-
-
-  // ── Analytics ────────────────────────────────────────────
-  function trackEvent(name, props) {
-    props = props || {};
-    console.log('[Analytics]', name, props);
-  }
-
-  window.addEventListener('load', function() {
-    trackEvent('page_view', { page: 'pdp', url: window.location.href, referrer: document.referrer });
-  });
-
-  var scrollMilestones = new Set();
-  window.addEventListener('scroll', function() {
-    var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    [25,50,75,90].forEach(function(m) {
-      if(pct >= m && !scrollMilestones.has(m)) {
-        scrollMilestones.add(m);
-        trackEvent('scroll_depth', { percent: m });
+    // Placeholder for mailing list submission logic
+    function submitMailing() {
+      const email = document.getElementById('mailingEmail').value;
+      if (email && email.includes('@')) {
+        Tracker.event('EmailSignup', { email: email, source: 'pdp_mailing' });
+        alert('Thank you for subscribing!');
+      } else {
+        alert('Please enter a valid email.');
       }
-    });
-  });
-
-  // ── Add to Cart (matches index.html) ─────────────────────
-  function addToCart(btn, name, price) {
-    trackEvent('add_to_cart', { product_name: name, price: price, currency: 'USD' });
-
-    // Meta Pixel AddToCart
-    if (typeof fbq === 'function') {
-      fbq('track', 'AddToCart', {
-        content_name: name,
-        content_category: 'Allergy Relief',
-        content_ids: [name.toLowerCase().replace(/\s+/g, '_')],
-        content_type: 'product',
-        value: price,
-        currency: 'USD'
-      });
     }
-
-    cartState[name] = (cartState[name] || 0) + 1;
-    cartCount = Object.values(cartState).reduce(function(a,b){return a+b;}, 0);
-
-
-    // Button animation
-    btn.classList.add('added');
-    setTimeout(function(){ btn.classList.remove('added'); }, 2200);
-
-    // Toast
-    document.getElementById('toastBadge').textContent = cartCount;
-    document.getElementById('toastMsg').textContent = name + ' added';
-    var toast = document.getElementById('cartToast');
-    toast.classList.add('show');
-    setTimeout(function(){ toast.classList.remove('show'); }, 3500);
-
-    // Nav badge
-    var badge = document.getElementById('navCartBadge');
-    badge.style.display = 'flex';
-    badge.textContent = cartCount;
-  }
-
-  // ── Go to cart ────────────────────────────────────────────
-  function goToCart() {
-    trackEvent('view_cart_click', { item_count: cartCount });
-    var p = encodeURIComponent(JSON.stringify(cartState));
-    window.location.href = 'cart.html?cart=' + p;
-  }
-
-  // ── Mailing list (matches index.html) ────────────────────
-  function submitMailing() {
-    var emailInput = document.getElementById('mailingEmail');
-    var email = emailInput.value.trim();
-    var btn = document.querySelector('.mailing-submit');
-
-    if (!email || !email.includes('@')) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-
-    if (typeof trackEvent === 'function') {
-      trackEvent('email_signup', { email: email, source: 'mailing_pdp' });
-    }
-
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    const formData = new FormData();
-    formData.append('a', CONFIG.KLAVIYO_PUBLIC_KEY);
-    formData.append('g', CONFIG.KLAVIYO_LIST_ID);
-    formData.append('email', email);
-    formData.append('$fields', '$source');
-    formData.append('$source', 'AeroGuard Website - PDP');
-
-    fetch('https://manage.kmail-lists.com/ajax/subscriptions/subscribe', {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    })
-    .then(() => {
-      btn.textContent = '✓ Subscribed';
-      btn.style.background = '#5a8a6e';
-      btn.style.color = 'white';
-      emailInput.value = '';
-      btn.disabled = false;
-    })
-    .catch(error => {
-      console.error('Klaviyo Error:', error);
-      btn.textContent = 'Error';
-      btn.style.background = '#e74c3c';
-      btn.disabled = false;
-    });
-  }
-
-  // ── FAQ accordion ─────────────────────────────────────────
-  document.querySelectorAll('.faq__question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq__item');
-      const isOpen = item.classList.contains('open');
-
-      document.querySelectorAll('.faq__item.open').forEach(i => {
-        i.classList.remove('open');
-        i.querySelector('.faq__question').setAttribute('aria-expanded', 'false');
-      });
-
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-
-    btn.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
-    });
-  });
-
-  // ── Fade-up on scroll ─────────────────────────────────────
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(el) {
-      if (el.isIntersecting) el.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.fade-up').forEach(function(el){ observer.observe(el); });
-</script>
+  </script>
 
 </body>
-</html>

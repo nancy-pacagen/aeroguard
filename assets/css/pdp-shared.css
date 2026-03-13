@@ -1,0 +1,179 @@
+/* AeroGuard PDP Layout Specifics 
+   Restores the dual-column grid and deep-purple hero branding.
+*/
+
+/* ── HERO SECTION ────────────────────────────────────────── */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile default: single column */
+  min-height: 82vh;
+  background: var(--purple-deep) !important; /* Original brand color */
+  overflow: hidden;
+  position: relative;
+  padding-top: 72px; /* Offset for fixed nav */
+}
+
+/* Desktop: Restore two-column layout */
+@media (min-width: 860px) {
+  .hero { 
+    grid-template-columns: 1fr 1fr; 
+  }
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 55%, rgba(201,168,76,.07) 55%);
+  pointer-events: none;
+}
+
+.hero__image-col {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image stacking and opacity */
+.hero__image-col img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: .93;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 32px; /* Mobile padding */
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 860px) {
+  .hero__content { 
+    padding: 72px 64px 72px 56px; /* Original desktop padding */
+  }
+}
+
+/* ── TYPOGRAPHY & DECORATION ─────────────────────────────── */
+.hero__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hero__title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+  font-weight: 700;
+  color: white;
+  line-height: 1.12;
+  margin-bottom: 28px;
+}
+
+/* The Gold Divider */
+.hero__divider {
+  width: 48px;
+  height: 2px;
+  background: var(--gold);
+  margin-bottom: 28px;
+  border-radius: 2px;
+}
+
+.hero__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.hero__price {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.hero__supply {
+  font-size: .85rem;
+  color: rgba(255,255,255,.55);
+  font-weight: 300;
+  letter-spacing: .03em;
+}
+
+/* ── FAQ / BOTTOM SECTION ─────────────────────────────── */
+/* Ensure the answer is hidden by default */
+.faq__answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+  padding: 0;
+}
+
+/* Ensure the text is visible when open */
+.faq__item.open .faq__answer {
+  max-height: 500px; /* Large enough to fit the text */
+  padding-bottom: 22px;
+}
+
+/* Rotate icon for visual feedback */
+.faq__item.open .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 0;
+  cursor: pointer;
+  user-select: none;
+  width: 80%;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile default */
+  min-height: calc(82vh - 72px);
+  background: var(--cream);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .bottom { 
+    grid-template-columns: 1fr 1fr; /* Desktop default */
+  }
+}
+
+.bottom__image-col {
+  position: relative;
+  overflow: hidden;
+  align-self: stretch;
+  min-height: 260px;
+}
+
+.bottom__image-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bottom__faq {
+  padding: 40px 20px 48px; /* Mobile padding */
+}
+
+@media (min-width: 860px) {
+  .bottom__faq { 
+    padding: 72px 64px 72px 40px; /* Original desktop padding */
+  }
+}
