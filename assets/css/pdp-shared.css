@@ -105,8 +105,8 @@
 
 .hero__supply {
   font-size: .85rem;
-  color: rgba(255,255,255,.55);
-  font-weight: 300;
+  color: white;
+  /* font-weight: 300; */
   letter-spacing: .03em;
 }
 
@@ -125,19 +125,43 @@
   padding-bottom: 22px;
 }
 
-/* Rotate icon for visual feedback */
-.faq__item.open .faq__icon {
-  transform: rotate(45deg);
+/* FAQ Question Container */
+.faq__question{
+  display: flex !important; 
+  align-items: center; /* Vertically centers icon with text */
+  justify-content: flex-start; /* Moves everything to the left */
+  gap: 1.2rem; /* Spacing between icon and text */
+  cursor: pointer;
+  padding: 1.5rem 0;
+  text-align: left;
+  width: 100%;
+  border: none;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: var(--purple-deep);
 }
 
-.faq__question {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 0;
-  cursor: pointer;
-  user-select: none;
-  width: 80%;
+/* Icon Styling (The + and -) */
+.faq__question::before {
+  content: '+'; /* Places icon BEFORE the text */
+  flex-shrink: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  flex-shrink: 0; /* Prevents icon from squishing */
+  transition: transform 0.3s ease;
+}
+
+/* Change icon to - or rotate when active */
+.faq__item.open .faq__question::before {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+/* Remove the old ::after icon if you had one */
+.faq__question::after {
+  display: none;
 }
 
 .bottom {

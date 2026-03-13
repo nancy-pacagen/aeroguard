@@ -139,7 +139,7 @@ h1.hero-title em {
 
 .section-sub {
   margin: 0 auto; /* Centers the description paragraph */
-  max-width: 50ch; /* Restores the original readable line length */
+  max-width: 80ch; /* Restores the original readable line length */
 }
 
 /* ── PRODUCT SECTION ────────────────────────────────────── */

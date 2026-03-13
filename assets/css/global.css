@@ -197,10 +197,10 @@ nav {
 .toast-badge { background: var(--gold); color: var(--purple-deep); border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; }
 
 /* 5. MAILING LIST */
-.mailing { padding: 4rem 1.5rem; background: var(--cream); text-align: center; border-top: 1px solid var(--border); }
-@media (min-width: 860px) { .mailing { padding: 5rem 3rem; } }
+.mailing { padding: 2rem 1.5rem; background: var(--cream); text-align: center; border-top: 1px solid var(--border); }
+@media (min-width: 860px) { .mailing { padding: 3rem 3rem; } }
 
-.section-eyebrow { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 0.8rem; display: inline-block; border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; }
+.section-eyebrow { font-size: 0.85rem; font-weight:bold; letter-spacing: 0.22em; text-transform: uppercase; color: var(--purple-light); margin-bottom: 0.8rem; display: inline-block; border-bottom: 1.5px solid var(--gold); padding-bottom: 0.2rem; }
 h2.section-title { font-family: 'Raleway', sans-serif; font-size: clamp(1.9rem, 3vw, 2.8rem); font-weight: 700; color: var(--purple-deep); margin-bottom: 0.7rem; }
 
 .mailing-form { display: flex; max-width: 400px; margin: 2rem auto 0.8rem; border-radius: 2px; overflow: hidden; box-shadow: 0 4px 20px rgba(74,16,96,0.1); }
@@ -214,7 +214,7 @@ h2.section-title { font-family: 'Raleway', sans-serif; font-size: clamp(1.9rem, 
   /*font-weight: 300;*/   /* Restores the light, clean look */
   color: var(--mid);  /* Matches original color */
   margin: 0.5rem auto 2rem; /* Matches original spacing */
-  max-width: 46ch;    /* Ensures text doesn't span too wide */
+  max-width: 80ch;    /* Ensures text doesn't span too wide */
 }
 .mailing-note {
   font-size: 0.65rem; /* Matches the original small size */
