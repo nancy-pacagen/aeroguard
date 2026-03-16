@@ -1,7 +1,15 @@
 /**
  * AeroGuard Tracking Engine
- * Centralizes Meta Pixel and internal console logging
+ * Initializes Converge pixel and centralizes event tracking (forwards to Meta automatically)
  */
+
+// ── Initialize Converge pixel ──
+window.cvg||(cvg=function(){cvg.process?cvg.process.apply(cvg,arguments):cvg.queue.push(arguments)},cvg.queue=[]);
+const convergeScript = document.createElement('script');
+convergeScript.src = 'https://static.runconverge.com/pixels/w557uh.js';
+convergeScript.async = true;
+document.head.appendChild(convergeScript);
+cvg({ method: 'track', eventName: '$page_load' });
 
 const Tracker = {
   /**
@@ -10,12 +18,8 @@ const Tracker = {
    * @param {Object} props - Metadata for the event
    */
   event(name, props = {}) {
-    // 1. Internal Debug Logging
-    console.log(`[Analytics] ${name}`, props);
-
-    // 2. Meta Pixel Tracking
-    if (typeof fbq === 'function') {
-      fbq('track', name, props);
+    if (typeof cvg === 'function') {
+      cvg({ method: 'track', eventName: name, properties: props });
     }
   },
 
@@ -24,21 +28,9 @@ const Tracker = {
    * @param {string} pageName - Friendly name of the page
    */
   pageView(pageName) {
-    this.event('PageView', { 
+    this.event('PageView', {
       page_path: window.location.pathname,
-      page_title: pageName 
+      page_title: pageName
     });
   }
 };
-
-// Auto-track scroll milestones (25%, 50%, 75%, 90%)
-let scrollMilestones = new Set();
-window.addEventListener('scroll', () => {
-  const scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-  [25, 50, 75, 90].forEach(m => {
-    if (scrollPct >= m && !scrollMilestones.has(m)) {
-      scrollMilestones.add(m);
-      Tracker.event('ScrollDepth', { percent: m });
-    }
-  });
-});

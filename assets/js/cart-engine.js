@@ -25,13 +25,11 @@ const Cart = {
     // Trigger UI Updates
     this.updateUI(product.name);
 
-    // Track AddToCart Event
+    // Track AddToCart Event (Converge format)
     Tracker.event('AddToCart', {
-      content_name: product.name,
-      content_category: product.category,
-      content_ids: [product.id],
-      content_type: 'product',
-      value: product.price,
+      product_id: product.id,
+      product_name: product.name,
+      product_price: product.price,
       currency: 'USD'
     });
   },
