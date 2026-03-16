@@ -58,8 +58,8 @@
   
   <div class="products-grid">
     
-    <div class="product-card fade-up" onclick="window.location.href='products/nasalspray.html'" style="cursor: pointer;">
-      <div class="product-img-wrap">
+    <div class="product-card fade-up">
+      <div class="product-img-wrap" onclick="window.location.href='products/nasalspray.html'" style="cursor: pointer;">
         <div class="product-badge badge-best">Most Popular</div>
         <img src ="assets/images/nasal_spray_product.png" alt="AeroGuard Nasal Spray">
       </div>
@@ -76,19 +76,36 @@
       </div>
     </div>
 
-    <div class="product-card fade-up" onclick="window.location.href='products/atomizer.html'" style="cursor: pointer;" style="transition-delay:0.1s">
-      <div class="product-img-wrap">
-        <img src="assets/images/atomizer_product.png" alt="AeroGuard Atmoizer">
+    <div class="product-card fade-up">
+      <div class="product-img-wrap" onclick="window.location.href='products/inhalermist.html'" style="cursor: pointer;" style="transition-delay:0.1s">
+        <img src="assets/images/inhalermist_product.png" alt="AeroGuard Inhalable Mist">
       </div>
       <div class="product-info">
-        <div class="product-name">Atomizer</div>
+        <div class="product-name">Inhalable Mist</div>
         <div class="product-tagline">Targets throat and upper airway allergen exposure.</div>
         <div class="product-footer">
           <div>
             <div class="product-price">$48</div>
             <div class="product-price-sub">$1.6/day</div>
           </div>
-          <button class="atc-btn btn-atc" onclick="Cart.add('inhaler')">Add to Cart</button>
+          <button class="atc-btn btn-atc" onclick="Cart.add('inhalable-mist')">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card fade-up">
+      <div class="product-img-wrap" onclick="window.location.href='products/atomizer.html'" style="cursor: pointer;" style="transition-delay:0.1s">
+        <img src="assets/images/atomizer_product.png" alt="AeroGuard Atmoizer">
+      </div>
+      <div class="product-info">
+        <div class="product-name">Atomizer</div>
+        <div class="product-tagline">Targets nasal passage and upper airway allergen exposure.</div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">$48</div>
+            <div class="product-price-sub">$1.6/day</div>
+          </div>
+          <button class="atc-btn btn-atc" onclick="Cart.add('atomizer')">Add to Cart</button>
         </div>
       </div>
     </div>

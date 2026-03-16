@@ -151,12 +151,12 @@ h1.hero-title em {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  max-width: 960px;
+  max-width: 1152px;
   margin: 0 auto;
 }
 
 @media (min-width: 860px) {
-  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .products-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
 .product-card {

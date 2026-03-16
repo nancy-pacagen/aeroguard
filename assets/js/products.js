@@ -21,11 +21,23 @@ const PRODUCTS = {
     name: 'Atomizer',
     price: 48,
     supply: '30-day supply',
-    tagline: 'Targets throat and upper airway allergen exposure.',
+    tagline: 'Targets nasal and upper airway allergen exposure.',
+    icon: '✨',
+    color: 'linear-gradient(135deg,#e8f0f5,#dde8f0)',
+    level: 'Nasal and Upper Airway Relief',
+    image: 'assets/images/atomizer_product.png',
+    category: 'Allergy Relief'
+  },
+  'inhalable-mist': {
+    id: 'inhalable-mist',
+    name: 'Inhalable Mist',
+    price: 48,
+    supply: '30-day supply',
+    tagline: 'Throat and Upper Airway Relief',
     icon: '✨',
     color: 'linear-gradient(135deg,#e8f0f5,#dde8f0)',
     level: 'Throat Comfort Formula',
-    image: 'assets/images/atomizer_product.png',
+    image: 'assets/images/inhalermist_product.png',
     category: 'Allergy Relief'
   },
   'bundle': {

@@ -18,7 +18,7 @@
   /></noscript>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AeroGuard Anti-Allergen Atomizer - Dust Neutralizing Mist</title>
+  <title>AeroGuard Inhalable Relief Mist - Dust Neutralizing Throat Mist</title>
   
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   
@@ -31,12 +31,12 @@
 
   <section class="hero">
     <div class="hero__image-col">
-      <img src="../assets/images/atomizer_productshot.png" alt="Aeroguard Atomizer" />
+      <img src="../assets/images/inhalermist_productshot.png" alt="Aeroguard Inhaler Mist" />
     </div>
 
     <div class="hero__content">
       <p class="hero__eyebrow">AeroGuard</p>
-      <h1 class="hero__title">Anti-Allergen<br>Atomizer</h1>
+      <h1 class="hero__title">Inhalable<br>Relief Mist</h1>
       <div class="hero__divider" style="width: 48px; height: 2px; background: var(--gold); margin-bottom: 28px; border-radius: 2px;"></div>
       <div class="hero__price-row">
         <span class="hero__price">$48</span>
@@ -44,17 +44,17 @@
       </div>
 
       <p class="hero__desc" style="color: rgba(255,255,255,.78); margin-bottom: 16px; font-weight: 300;">
-        Fine, <strong>breatheable mist</strong> gently coats nasal passages and upper airways.
+        Fine, <strong>inhalable mist</strong> gently coats throat and upper airways.
       </p>
 
       <p class="hero__desc" style="color: rgba(255,255,255,.78); margin-bottom: 16px; font-weight: 300;">
-        Fine mist spray contains antibodies engineered to <strong>neutralize dust allergens before they trigger irritation.</strong>
+        Fine mist contains antibodies engineered to <strong>neutralize dust allergens before they trigger irritation.</strong>
       </p>
       <p class="hero__desc" style="color: rgba(255,255,255,.78); margin-bottom: 44px; font-weight: 300;">
         Drug-free, nontoxic, and safe for daily use. 
       </p>
 
-      <button class="btn-atc" onclick="Cart.add('atomizer')">
+      <button class="btn-atc" onclick="Cart.add('inhalable-mist')">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
@@ -66,7 +66,7 @@
 
   <section class="bottom">
     <div class="bottom__image-col">
-      <img src="../assets/images/atomizer_faqshot.png" alt="AeroGuard Atomizer" />
+      <img src="../assets/images/inhalermist_faqshot.png" alt="AeroGuard Inhaler Mist" />
     </div>
 
     <div class="bottom__faq">
@@ -84,14 +84,15 @@
 
       <div class="faq__item">
         <div class="faq__question" role="button" aria-expanded="false" tabindex="0">
-          <span>How do I use the atomizer?</span>
+          <span>How do I use the inhalable relief mist?</span>
           <!-- <div class="faq__icon">+</div> -->
         </div>
         <div class="faq__answer">
-          <p> Press and hold the side button to dispense mist.</p>
-          <p>Point the mist towards your face.</p>
-          <p>Take 2-3 deep breaths of 5 seconds each, fully inhaling the mist. </p>
-          <!-- <p>Apply to the back of your throat. Apply once daily or as directed for continuous protection. No need to spit out.</p> -->
+          <p>1. Shake the bottle gently.</p>
+          <p>2. Hold the device upright and point the nozzle toward the back of your mouth and throat.</p>
+          <p>3. Press down on the dispenser to release 2-3 sprays to the throat.</p>
+          <p>4. Take a slow, gentle breath in through your mouth to allow the fine mist to settle across your throat and upper airways. No need to spit out.</p>
+          <p>Apply two or three daily sprays for maximum protection.</p>
         </div>
       </div>
 
@@ -122,7 +123,7 @@
 
   <div class="cart-toast" id="cartToast" onclick="window.location.href='cart.html'">
     <div class="toast-badge" id="toastBadge">0</div>
-    <span id="toastMsg">Nasal Spray added</span>
+    <span id="toastMsg">Inhalable Relief Mist added</span>
     <span style="opacity: 0.38; font-size: 0.65rem; margin-left: 0.3rem;">· View Cart →</span>
   </div>
 
@@ -136,7 +137,7 @@
     /**
      * Page-Specific Logic
      */
-    Tracker.pageView('Atomizer PDP');
+    Tracker.pageView('Inhalable-Mist PDP');
 
     // Placeholder for mailing list submission logic
     function submitMailing() {
