@@ -179,7 +179,7 @@ h1.hero-title em {
 }
 
 @media (min-width: 860px) {
-  .products-grid { grid-template-columns: repeat(4, 1fr); }
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .product-card {
