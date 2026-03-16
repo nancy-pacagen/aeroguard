@@ -253,7 +253,8 @@ footer small {
   border: none;
   cursor: pointer;
   padding: 8px;
-  margin-left: 1rem;     /* push it right of the logo */
+  margin-right: auto;    /* pushes everything else to the right */
+  order: -1;             /* moves hamburger before the logo in flex order */
   z-index: 200;
 }
 .nav-hamburger span {
@@ -390,4 +391,11 @@ footer small {
 
   /* Make sure <nav> is position:relative so the panel can anchor to it */
   nav { position: relative; }
+
+  /* Center logo on mobile */
+  .nav-logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
