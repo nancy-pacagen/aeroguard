@@ -1,6 +1,7 @@
 /**
  * AeroGuard Components Engine
  * Manages shared Header and Footer HTML with dynamic pathing
+ * Updated: mobile-friendly hamburger + tap-to-toggle Products dropdown
  */
 
 const Components = {
@@ -11,9 +12,22 @@ const Components = {
         <img src="../assets/images/aeroguard-logo.png" alt="AeroGuard logo">
         <span class="nav-logo-text">AeroGuard</span>
       </a>
-      <ul class="nav-links">
+
+      <!-- Hamburger button (visible on mobile only) -->
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Nav links — hidden on mobile until hamburger is tapped -->
+      <ul class="nav-links" id="navLinks">
         <li class="nav-dropdown">
+          <!-- Products link + chevron toggle button -->
           <a href="../index.html#products">Products</a>
+          <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Products menu">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 4 6 8 10 4"/>
+            </svg>
+          </button>
           <ul class="dropdown-menu">
             <li><a href="../products/nasalspray.html">Nasal Spray</a></li>
             <li><a href="../products/inhalermist.html">Inhalable Mist</a></li>
@@ -21,6 +35,7 @@ const Components = {
           </ul>
         </li>
       </ul>
+
       <div class="nav-right">
         <a href="../index.html#products" class="btn-sm">Shop Now</a>
         <button class="nav-cart-btn" id="navCart" onclick="window.location.href='../cart.html'">
@@ -48,28 +63,55 @@ const Components = {
     </footer>
   `,
 
-  // Injection Logic
+  // Injection + mobile interaction logic
   init() {
     const headerPin = document.getElementById('nav-placeholder');
     const footerPin = document.getElementById('footer-placeholder');
 
-    // Detect if we are in a subfolder (like /products/)
-    // This checks the URL bar of your browser
     const isSubfolder = window.location.pathname.includes('/products/');
 
     let finalHeader = this.header;
     let finalFooter = this.footer;
 
     if (!isSubfolder) {
-      // If we are on the root (homepage), we REMOVE the "../" from all links
-      // so they point correctly to assets/ or index.html
       finalHeader = this.header.split('../').join('');
       finalFooter = this.footer.split('../').join('');
     }
 
-    // Inject the processed HTML into the page
     if (headerPin) headerPin.innerHTML = finalHeader;
     if (footerPin) footerPin.innerHTML = finalFooter;
+
+    // ── Mobile: hamburger toggles the full nav-links panel ──
+    const hamburger = document.getElementById('navHamburger');
+    const navLinks  = document.getElementById('navLinks');
+
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('nav-open');
+        hamburger.setAttribute('aria-expanded', open);
+        hamburger.classList.toggle('is-open', open);
+      });
+    }
+
+    // ── Mobile: chevron button tap-toggles the Products dropdown ──
+    // (On desktop the dropdown still opens on hover via CSS)
+    document.querySelectorAll('.dropdown-toggle').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // don't bubble up to the hamburger close handler
+        const li = btn.closest('.nav-dropdown');
+        const isOpen = li.classList.toggle('dropdown-open');
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+    });
+
+    // Close nav + dropdown when any nav link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks && navLinks.classList.remove('nav-open');
+        hamburger && hamburger.classList.remove('is-open');
+        document.querySelectorAll('.nav-dropdown').forEach(li => li.classList.remove('dropdown-open'));
+      });
+    });
 
     // Sync the cart badge if the cart engine is loaded
     if (typeof Cart !== 'undefined') {
@@ -78,5 +120,4 @@ const Components = {
   }
 };
 
-// Initialize components when the script loads
 document.addEventListener('DOMContentLoaded', () => Components.init());

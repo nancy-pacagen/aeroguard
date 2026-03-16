@@ -223,7 +223,6 @@ h2.section-title { font-family: 'Raleway', sans-serif; font-size: clamp(1.9rem, 
   margin-top: 0.8rem; /* Corrects the spacing */
 }
 
-
 /* UTILITIES (Animations & Footer) */
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -239,3 +238,156 @@ footer small {
 .footer-logo img { width: 26px; height: 26px; opacity: 0.75; }
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a { font-size: 0.68rem; color: rgba(255,255,255,0.28); text-decoration: none; text-transform: uppercase; }
+
+/* =========================================================
+   MOBILE NAV — add these rules to assets/css/global.css
+   ========================================================= */
+
+/* -- Hamburger button (hidden on desktop) -- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;     /* push it right of the logo */
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+/* Animate hamburger → X when open */
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* -- Chevron toggle inside Products li -- */
+.dropdown-toggle {
+  display: none;          /* hidden on desktop; shown on mobile below */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  color: inherit;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+.nav-dropdown.dropdown-open .dropdown-toggle {
+  transform: rotate(180deg);
+}
+
+/* -- Desktop: hover-only dropdown — matches original dark purple styling -- */
+@media (min-width: 769px) {
+  .nav-dropdown { position: relative; }
+
+  /* Restore original dropdown appearance (overrides nothing — just re-states it clearly) */
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2d1a3e;
+    border: 1px solid rgba(228,199,127,0.15);
+    border-radius: 3px;
+    min-width: 160px;
+    list-style: none;
+    padding: 0.75rem 0 0.4rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    z-index: 100;
+  }
+  /* Hover bridge so menu doesn't close when moving cursor down to it */
+  .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -0.75rem; left: 0; right: 0;
+    height: 0.75rem;
+    background: transparent;
+  }
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.55rem 1.2rem;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .dropdown-menu li a:hover { color: var(--gold-light); }
+
+  /* Show on hover (desktop) */
+  .nav-dropdown:hover > .dropdown-menu { display: block; }
+}
+
+/* ── Mobile breakpoint ── */
+@media (max-width: 768px) {
+  /* Show hamburger, hide nav-right Shop Now link (optional) */
+  .nav-hamburger { display: flex; }
+
+  /* Collapse nav-links into a slide-down panel — matches nav bar color */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #3d1a52;
+    border-top: 1px solid rgba(228,199,127,0.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    padding: 12px 0 20px;
+    list-style: none;
+    margin: 0;
+    z-index: 150;
+  }
+  .nav-links.nav-open { display: flex; }
+
+  /* Products row: link + chevron side by side */
+  .nav-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0 20px;
+  }
+  .nav-dropdown > a {
+    flex: 1;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  /* Show chevron on mobile */
+  .dropdown-toggle { display: inline-flex; }
+
+  /* Dropdown items stack below, collapsed by default */
+  .dropdown-menu {
+    display: none;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0 0 8px 12px;
+    border-left: 2px solid rgba(228,199,127,0.25);
+  }
+  .nav-dropdown.dropdown-open > .dropdown-menu { display: block; }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 10px 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: rgba(255,255,255,0.65);
+  }
+  .dropdown-menu li a:hover { color: var(--gold-light); }
+
+  /* Make sure <nav> is position:relative so the panel can anchor to it */
+  nav { position: relative; }
+}
