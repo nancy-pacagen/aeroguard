@@ -2,7 +2,7 @@
 /* Link this in the <head> of every page:
 /* <link rel="stylesheet" href="assets/css/global.css"> */
 
-/* 1. CORE VARIABLES & RESET */
+/* CORE VARIABLES & RESET */
 :root {
   --purple: #4a1060;
   --purple-deep: #2d0a3a;
@@ -28,7 +28,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* 2. SHARED NAVIGATION & DROPDOWN */
+/* SHARED NAVIGATION & DROPDOWN */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -72,7 +72,7 @@ nav {
 .nav-dropdown:hover .dropdown-menu { display: block; }
 .dropdown-menu li a { display: block; padding: 0.55rem 1.2rem; font-size: 0.72rem; color: rgba(255,255,255,0.65); white-space: nowrap; }
 
-/* 3. BUTTONS & UI ELEMENTS */
+/* BUTTONS & UI ELEMENTS */
 .btn-sm {
   font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
   background: var(--purple-deep); color: white; padding: 0.55rem 1.3rem;
@@ -182,7 +182,7 @@ nav {
   font-weight: 500;
 }
 
-/* 4. CART TOAST */
+/* CART TOAST */
 .cart-toast {
   position: fixed; bottom: 2rem; right: 1rem; z-index: 200;
   background: var(--purple-deep); color: white;
@@ -196,7 +196,7 @@ nav {
 .cart-toast.show { transform: translateY(0); }
 .toast-badge { background: var(--gold); color: var(--purple-deep); border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 0.62rem; font-weight: 700; }
 
-/* 5. MAILING LIST */
+/* MAILING LIST */
 .mailing { padding: 2rem 1.5rem; background: var(--cream); text-align: center; border-top: 1px solid var(--border); }
 @media (min-width: 860px) { .mailing { padding: 3rem 3rem; } }
 
@@ -224,14 +224,14 @@ h2.section-title { font-family: 'Raleway', sans-serif; font-size: clamp(1.9rem, 
 }
 
 
-/* 6. UTILITIES (Animations & Footer) */
+/* UTILITIES (Animations & Footer) */
 .fade-up { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
 footer { background: var(--purple-deep); padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; }
 /* Footer Copyright Text Fix */
 footer small { 
-  font-size: 0.65rem; 
+  font-size: 0.70rem; 
   color: rgba(255,255,255,0.45); /* Adjusted for better visibility than the original 0.22 */
 }
 @media (min-width: 860px) { footer { padding: 2.5rem 3rem; flex-direction: row; justify-content: space-between; } }
