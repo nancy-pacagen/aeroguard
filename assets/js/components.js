@@ -104,6 +104,21 @@ const Components = {
       });
     });
 
+    // ── Mobile: block the Products link from navigating on mobile ──
+    // Tapping the "Products" text toggles the dropdown instead of navigating.
+    // On desktop (>768px) the link navigates normally; dropdown opens on hover via CSS.
+    document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          const li = link.closest('.nav-dropdown');
+          const btn = li.querySelector('.dropdown-toggle');
+          const isOpen = li.classList.toggle('dropdown-open');
+          if (btn) btn.setAttribute('aria-expanded', isOpen);
+        }
+      });
+    });
+
     // Close nav + dropdown when any nav link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
