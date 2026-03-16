@@ -31,22 +31,30 @@
 .hero__image-col {
   position: relative;
   overflow: hidden;
-  order: 2; /* mobile: product shot at the very bottom */
-}
-
-/* Mobile: give the column a real height so the absolute img is visible */
-@media (max-width: 859px) {
-  .hero__image-col {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    min-height: unset;
-  }
 }
 
 @media (min-width: 860px) {
   .hero__image-col {
-    order: -1; /* desktop: product shot back to the left */
+    order: -1; /* desktop: product shot on the left */
   }
+}
+
+/* Mobile: when JS moves the image outside .hero, give it a proper height */
+.hero__image-col--mobile-bottom {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.hero__image-col--mobile-bottom img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  opacity: .93;
 }
 
 /* Image stacking and opacity */
@@ -65,7 +73,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 48px 32px; /* Mobile padding */
+  padding: 24px 32px; /* Mobile padding */
   position: relative;
   z-index: 1;
 }
@@ -199,10 +207,13 @@
   overflow: hidden;
   align-self: stretch;
   min-height: 260px;
-  order: -1; /* mobile: FAQ image appears before FAQ text */
 }
 
-/* desktop order unchanged — image stays on the left */
+@media (min-width: 860px) {
+  .bottom__image-col {
+    order: -1; /* desktop: image on the left */
+  }
+}
 
 .bottom__image-col img {
   width: 100%;
