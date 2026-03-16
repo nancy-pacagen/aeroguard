@@ -28,19 +28,18 @@
   }
 }
 
-/* Mobile: image scales with screen width via aspect-ratio */
+/* Mobile: let the image define its own height — no cropping */
 @media (max-width: 859px) {
   .hero-img {
     display: block;
     width: 100%;
-    aspect-ratio: 3 / 2;
-    overflow: hidden; /* clip only the image box itself, not the whole hero */
   }
   .hero-img img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 420px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     display: block;
   }
 }
@@ -174,7 +173,7 @@ h1.hero-title em {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  max-width: 1152px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
