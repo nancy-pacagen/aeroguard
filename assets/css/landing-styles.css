@@ -5,9 +5,7 @@
   background: var(--purple-deep) !important;
   display: grid;
   grid-template-columns: 1fr; /* Mobile: single column, text then image */
-  grid-template-rows: auto auto;
   position: relative;
-  /* overflow:hidden removed on mobile — it was clipping the hero image */
 }
 
 @media (min-width: 860px) {
@@ -22,12 +20,11 @@
 .hero-img {
   position: relative;
   overflow: hidden;
-  order: 2; /* renders after hero-text on mobile */
 }
 
 @media (min-width: 860px) {
   .hero-img {
-    order: -1; /* restores image to the left of text on desktop */
+    order: -1; /* desktop: image to the left of text */
   }
 }
 

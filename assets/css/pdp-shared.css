@@ -31,7 +31,6 @@
 .hero__image-col {
   position: relative;
   overflow: hidden;
-  order: 2; /* mobile: product image after hero text */
 }
 
 @media (max-width: 859px) {
@@ -224,7 +223,6 @@
   overflow: hidden;
   align-self: stretch;
   min-height: 260px;
-  order: 2; /* mobile: FAQ image after FAQ text */
 }
 
 @media (min-width: 860px) {
