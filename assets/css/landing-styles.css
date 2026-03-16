@@ -6,9 +6,8 @@
   display: grid;
   grid-template-columns: 1fr; /* Mobile: single column, text then image */
   grid-template-rows: auto auto;
-  overflow: hidden;
   position: relative;
-  /* No min-height on mobile — let content + image define the height */
+  /* overflow:hidden removed on mobile — it was clipping the hero image */
 }
 
 @media (min-width: 860px) {
@@ -16,6 +15,7 @@
     grid-template-columns: 1fr 1fr; /* Desktop: side-by-side */
     grid-template-rows: unset;
     min-height: 100vh;
+    overflow: hidden;
   }
 }
 
@@ -37,6 +37,7 @@
     display: block;
     width: 100%;
     aspect-ratio: 3 / 2;
+    overflow: hidden; /* clip only the image box itself, not the whole hero */
   }
   .hero-img img {
     width: 100%;

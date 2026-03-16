@@ -31,6 +31,23 @@
 .hero__image-col {
   position: relative;
   overflow: hidden;
+  order: 2; /* mobile: product image after hero text */
+}
+
+@media (max-width: 859px) {
+  .hero__image-col {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: unset;
+  }
+  .hero__image-col img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+  }
 }
 
 @media (min-width: 860px) {
@@ -73,7 +90,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 24px 32px; /* Mobile padding */
+  padding: 24px 32px 48px; /* Mobile: reduced top padding */
   position: relative;
   z-index: 1;
 }
@@ -207,6 +224,7 @@
   overflow: hidden;
   align-self: stretch;
   min-height: 260px;
+  order: 2; /* mobile: FAQ image after FAQ text */
 }
 
 @media (min-width: 860px) {
