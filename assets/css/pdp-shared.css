@@ -31,6 +31,13 @@
 .hero__image-col {
   position: relative;
   overflow: hidden;
+  order: 2; /* mobile: image renders after content */
+}
+
+@media (min-width: 860px) {
+  .hero__image-col {
+    order: -1; /* desktop: image back to the left */
+  }
 }
 
 /* Image stacking and opacity */
@@ -183,6 +190,13 @@
   overflow: hidden;
   align-self: stretch;
   min-height: 260px;
+  order: 2; /* mobile: image renders after FAQ text */
+}
+
+@media (min-width: 860px) {
+  .bottom__image-col {
+    order: -1; /* desktop: image back to the left */
+  }
 }
 
 .bottom__image-col img {

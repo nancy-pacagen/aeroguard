@@ -3,26 +3,40 @@
 /* Restore the Split Hero */
 .hero {
   min-height: 100vh;
-  background: var(--purple-deep) !important; /* Forces original branding */
+  background: var(--purple-deep) !important;
   display: grid;
-  grid-template-columns: 1fr; /* Mobile Default */
+  grid-template-columns: 1fr; /* Mobile: single column, text then image */
+  grid-template-rows: auto auto;
   overflow: hidden;
   position: relative;
 }
 
 @media (min-width: 860px) {
   .hero {
-    grid-template-columns: 1fr 1fr; /* Restores 50/50 Desktop Split */
+    grid-template-columns: 1fr 1fr; /* Desktop: side-by-side */
+    grid-template-rows: unset;
+    min-height: 100vh;
   }
 }
 
 .hero-img {
   position: relative;
   overflow: hidden;
+  order: 2; /* renders after hero-text on mobile */
 }
 
-@media (max-width: 860px) {
-  .hero-img { display: none; } /* Matches original mobile behavior */
+@media (min-width: 860px) {
+  .hero-img {
+    order: -1; /* restores image to the left of text on desktop */
+  }
+}
+/* Mobile: show image below text at a fixed height */
+@media (max-width: 859px) {
+  .hero-img {
+    display: block;
+    width: 100%;
+    height: 260px;
+  }
 }
 
 .hero-img img {
@@ -37,7 +51,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 8rem 2rem 4rem; /* Mobile Spacing */
+  padding: 4rem 2rem 2.5rem; /* Mobile: less top gap, less bottom since image follows */
   position: relative;
   z-index: 2;
 }
@@ -287,4 +301,4 @@ h1.hero-title em {
 .statement-body em {
   font-style: italic;
   color: var(--gold-light);
-} 
+}
