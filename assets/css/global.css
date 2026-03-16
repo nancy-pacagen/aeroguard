@@ -253,14 +253,14 @@ footer small {
   border: none;
   cursor: pointer;
   padding: 8px;
-  margin-left: auto;     /* push it right of the logo */
+  margin-left: 1rem;     /* push it right of the logo */
   z-index: 200;
 }
 .nav-hamburger span {
   display: block;
   width: 22px;
   height: 2px;
-  background: currentColor;
+  background: #e4c77f;
   border-radius: 2px;
   transition: transform 0.25s, opacity 0.25s;
 }
