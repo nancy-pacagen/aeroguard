@@ -31,12 +31,21 @@
 .hero__image-col {
   position: relative;
   overflow: hidden;
-  order: 2; /* mobile: image renders after content */
+  order: 2; /* mobile: product shot at the very bottom */
+}
+
+/* Mobile: give the column a real height so the absolute img is visible */
+@media (max-width: 859px) {
+  .hero__image-col {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    min-height: unset;
+  }
 }
 
 @media (min-width: 860px) {
   .hero__image-col {
-    order: -1; /* desktop: image back to the left */
+    order: -1; /* desktop: product shot back to the left */
   }
 }
 
@@ -190,14 +199,10 @@
   overflow: hidden;
   align-self: stretch;
   min-height: 260px;
-  order: 2; /* mobile: image renders after FAQ text */
+  order: -1; /* mobile: FAQ image appears before FAQ text */
 }
 
-@media (min-width: 860px) {
-  .bottom__image-col {
-    order: -1; /* desktop: image back to the left */
-  }
-}
+/* desktop order unchanged — image stays on the left */
 
 .bottom__image-col img {
   width: 100%;
