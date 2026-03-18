@@ -22,7 +22,7 @@ const Components = {
       <ul class="nav-links" id="navLinks">
         <li class="nav-dropdown">
           <!-- Products link + chevron toggle button -->
-          <a href="../index.html#products">Products</a>
+          <a href="../index.html#products">Shop Now</a>
           <button class="dropdown-toggle" aria-expanded="false" aria-label="Toggle Products menu">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="2 4 6 8 10 4"/>
@@ -37,7 +37,7 @@ const Components = {
       </ul>
 
       <div class="nav-right">
-        <a href="../index.html#products" class="btn-sm">Shop Now</a>
+        <a href="../index.html#products" class="btn-sm">Products</a>
         <button class="nav-cart-btn" id="navCart" onclick="window.location.href='../cart.html'">
           <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>

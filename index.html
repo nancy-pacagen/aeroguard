@@ -24,27 +24,59 @@
 <section class="hero">
   <div class="hero-text fade-up">
     <h1 class="hero-title">Wake Up <em>Clear-Headed,</em><br>Not Congested</h1>
-    <p class="hero-body">Developed by Harvard scientists and clinically tested, AeroGuard represents a new category of dust allergen management. One that addresses the source, not just the symptoms.</p>
+    <p class="hero-body">AeroGuard is a new approach to dust allergy relief that neutralizes allergens at the source instead of just treating the symptoms.</p>
     
     <a href="#products" class="hero-cta">Explore Products</a>
     
     <div class="hero-proof">
       <div class="proof-line"></div>
       <div class="proof-text">
-        Clinically Tested &amp; Proven Effective
-        <strong>Safe for Daily Use</strong>
+        Drug-Free Mechanism
+        <strong>No steroids, no antihistamines. Works with your body's natural processes.</strong>
       </div>
     </div>
+
+    <div class="hero-proof">
+      <div class="proof-line"></div>
+      <div class="proof-text">
+        Up to 24-hour protection
+        <strong>One application shields your airways all day.</strong>
+      </div>
+    </div>
+
+    <div class="hero-proof">
+      <div class="proof-line"></div>
+      <div class="proof-text">
+        Lab-tested
+        <strong>Clinically tested for safety and efficacy in humans.</strong>
+      </div>
+    </div>
+
   </div>
   <div class="hero-img">
     <img src="assets/images/homepage-hero.png" alt="Homepage Hero">
   </div>
 </section>
 
+<section class="science" id="mission">
+  <div class="section-header fade-up">
+    <div class="section-eyebrow fade-up">Our Mission</div>
+    <h2 class="section-title fade-up">
+      The allergy industry profits from your symptoms. 
+      <br>Aeroguard <em>eliminates the cause.</em>
+    </h2>
+    <p class="section-sub">
+    The allergy industry profits from daily pills and shots that mask symptoms. AeroGuard is built on a different premise: our biotechnology targets the source, not just the symptoms.
+    <br><br>
+    AeroGuard was developed by Harvard scientists who spent years studying the specific proteins that cause dust allergies — <strong>DER P 1 and DER P 2.</strong> The result is a precision formula that has been independently lab-tested for safety and efficacy. Designed to work with your body's natural processes, not override them.
+    </p>
+  </div>
+</section>
+
 <section class="products" id="products">
   <div class="section-header fade-up">
-    <div class="section-eyebrow">Complete Airway Protection</div>
-    <h2 class="section-title">Choose Your Defense</h2>
+    <div class="section-eyebrow">Our Products</div>
+    <h2 class="section-title">Pick Your Protection</h2>
     <p class="section-sub">Choose nasal, throat, or both based on where you experience symptoms most.</p>
   </div>
   
@@ -63,7 +95,8 @@
             <div class="product-price">$48</div>
             <div class="product-price-sub">$1.6/day</div>
           </div>
-          <button class="atc-btn btn-atc" onclick="Cart.add('nasal-spray')">Add to Cart</button>
+          <button class="product-cta" onclick="window.location.href='products/nasalspray.html'" style="cursor: pointer;">Learn More</button>
+          <!-- <button class="atc-btn btn-atc" onclick="Cart.add('nasal-spray')">Add to Cart</button> -->
         </div>
       </div>
     </div>
@@ -80,7 +113,8 @@
             <div class="product-price">$48</div>
             <div class="product-price-sub">$1.6/day</div>
           </div>
-          <button class="atc-btn btn-atc" onclick="Cart.add('inhalable-mist')">Add to Cart</button>
+          <button class="product-cta" onclick="window.location.href='products/inhalermist.html'" style="cursor: pointer;">Learn More</button>
+          <!-- <button class="atc-btn btn-atc" onclick="Cart.add('inhalable-mist')">Add to Cart</button> -->
         </div>
       </div>
     </div>
@@ -97,22 +131,27 @@
             <div class="product-price">$48</div>
             <div class="product-price-sub">$1.6/day</div>
           </div>
-          <button class="atc-btn btn-atc" onclick="Cart.add('atomizer')">Add to Cart</button>
+          <button class="product-cta" onclick="window.location.href='products/atomizer.html'" style="cursor: pointer;">Learn More</button>
+          <!-- <button class="atc-btn btn-atc" onclick="Cart.add('atomizer')">Add to Cart</button> -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="statement">
-  <div class="statement-kicker fade-up">We neutralize allergens. They suppress your immune response.</div>
-  <p class="statement-body fade-up">The allergy industry profits from daily pills that mask symptoms. AeroGuard uses biotechnology to <em>bind and neutralize</em> dust allergens at the source.</p>
+<section class="statement" id="science">
+  <div class="statement-kicker fade-up">The Science</div>
+  <p class="statement-body fade-up">The <em>DER P 1</em> Difference</p>
+  <br><br>
+  <p class="section-sub" style="color:rgba(255, 255, 255, 0.6)">
+    Over 90% of dust allergy reactions are triggered by just two proteins found in dust mite waste: <em>DER P 1 and DER P 2.</em> Most treatments ignore them entirely, but our patented AeroBlock technology binds directly to DER P 1 and DER P 2, neutralizing them on contact. <em>Just one spritz for 24 hour protection.</em>
+  </p>
 </section>
 
 <section class="mailing">
-  <div class="section-eyebrow fade-up">Stay Informed</div>
+  <div class="section-eyebrow fade-up">Stay Connected</div>
   <h2 class="section-title fade-up">Mailing List</h2>
-  <p class="mailing-sub fade-up">Sign up for early access to new formulations and exclusive discounts.</p>
+  <p class="mailing-sub fade-up">Get the latest updates and exclusive offers when you subscribe to our mailing list.</p>
   <div class="mailing-form fade-up">
     <input type="email" class="mailing-input" id="mailingEmail" placeholder="your@email.com"/>
     <button class="mailing-submit" onclick="submitMailing()">Subscribe</button>
