@@ -150,6 +150,12 @@
   letter-spacing: .03em;
 }
 
+.hero__desc{
+  color: white;
+  margin-bottom: 16px; 
+  font-weight: 300;
+}
+
 /* ── FAQ / BOTTOM SECTION ─────────────────────────────── */
 /* Ensure the answer is hidden by default */
 .faq__answer {
