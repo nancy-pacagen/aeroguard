@@ -58,7 +58,7 @@ const Components = {
       </div>
       <small>© 2026 AeroGuard. All rights reserved.</small>
       <div class="footer-links">
-        <a href="#">Privacy</a><a href="../index.html#science">Science</a><a href="#">Contact</a>
+        <a href="#">Privacy</a><a href="../index.html#preproduct">Mission</a><a href="#">Contact</a>
       </div>
     </footer>
   `,

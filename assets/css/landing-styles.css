@@ -147,16 +147,6 @@ h1.hero-title em {
   font-weight: 400; /* Semi-bold weight */
 }
 
-
-.science {
-  padding: 2rem 1.5rem 2rem; 
-  background: var(--cream);
-  border-top: 3px solid var(--gold);
-}
-@media (min-width: 860px) { .science { padding: 4rem 1.5rem 1rem; } }
-
-/*--- product section text? ---*/
-/* Center the Product Section Header */
 .section-header {
   text-align: center; /* Centers text globally within the header */
   margin-bottom: 4rem; /* Restores original spacing before the grid */
@@ -175,6 +165,13 @@ h1.hero-title em {
 }
 
 /* ── PRODUCT SECTION ────────────────────────────────────── */
+
+.preproduct {
+  padding: 2rem 1.5rem 2rem; 
+  background: var(--cream);
+  border-top: 3px solid var(--gold);
+}
+@media (min-width: 860px) { .preproduct { padding: 4rem 1.5rem 1rem; } }
 
 .products { padding: 3rem 1.5rem; background: var(--cream); }
 @media (min-width: 860px) { .products { padding: 1.5rem 3rem 6rem; } }
