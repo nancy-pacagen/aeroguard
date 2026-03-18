@@ -76,7 +76,13 @@ const Cart = {
     if (toast && toastMsg && toastBadge) {
       toastMsg.textContent = `${name} added`;
       toastBadge.textContent = count;
-      
+
+      // Resolve cart path based on whether we're in a subfolder
+      const cartPath = window.location.pathname.includes('/products/')
+        ? '../cart.html'
+        : 'cart.html';
+      toast.onclick = () => window.location.href = cartPath;
+
       toast.classList.add('show');
       setTimeout(() => toast.classList.remove('show'), 3500);
     }
